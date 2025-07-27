@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
       this.mouse = { x: 0.5, y: 0.5 };
       this.scrolled = false;
       this.lastScrollY = 0;
-      this.scrollThreshold = 50;
-      this.scrollHysteresis = 10; // Prevent rapid toggling
+      this.scrollThreshold = 80;
+      this.scrollHysteresis = 30; // Prevent rapid toggling
       this.width = Math.max(1280, window.innerWidth);
       this.height = 80;
       this.canvasDPI = 0.5; // Reduce for performance
@@ -136,42 +136,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     setupEventListeners() {
-      // Mouse tracking
+      // Mouse tracking - throttled for performance
+      let mouseThrottle = false;
       document.addEventListener('mousemove', (e) => {
-        const rect = this.header.getBoundingClientRect();
-        this.mouse.x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-        this.mouse.y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-        
-        if (this.scrolled) {
-          this.updateShader();
-        }
-      });
-      
-      // Scroll tracking with hysteresis to prevent rapid toggling
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
+        if (!mouseThrottle && this.scrolled) {
+          mouseThrottle = true;
           requestAnimationFrame(() => {
-            const currentScrollY = window.scrollY;
-            let shouldBeScrolled = this.scrolled;
-            
-            // Use hysteresis to prevent rapid toggling
-            if (!this.scrolled && currentScrollY > this.scrollThreshold + this.scrollHysteresis) {
-              shouldBeScrolled = true;
-            } else if (this.scrolled && currentScrollY < this.scrollThreshold - this.scrollHysteresis) {
-              shouldBeScrolled = false;
-            }
-            
-            if (shouldBeScrolled !== this.scrolled) {
-              this.scrolled = shouldBeScrolled;
-              this.updateHeaderState();
-            }
-            
-            this.lastScrollY = currentScrollY;
-            ticking = false;
+            const rect = this.header.getBoundingClientRect();
+            this.mouse.x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+            this.mouse.y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+            this.updateShader();
+            mouseThrottle = false;
           });
-          ticking = true;
         }
+      }, { passive: true });
+      
+      // Simplified scroll tracking with debouncing
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const currentScrollY = window.scrollY;
+          const shouldBeScrolled = currentScrollY > this.scrollThreshold;
+          
+          if (shouldBeScrolled !== this.scrolled) {
+            this.scrolled = shouldBeScrolled;
+            this.updateHeaderState();
+          }
+        }, 50); // 50ms debounce
       }, { passive: true });
       
       // Initial state
