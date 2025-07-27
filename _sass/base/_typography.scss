@@ -1,7 +1,7 @@
 // Typography System - Inter Font Family
 
 // Google Fonts Import
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional');
 
 // Base typography
 * {
@@ -72,7 +72,7 @@ h6 {
 // Body text
 p {
   margin-bottom: $space-4;
-  color: $gray-700;
+  color: $gray-800;
   line-height: 1.7;
 }
 

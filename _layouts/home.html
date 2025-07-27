@@ -5,13 +5,13 @@ layout: default
 <section class="hero">
   <div class="hero-container">
     <div class="hero-content">
-      <h2 class="hero-title">
+      <h1 class="hero-title">
         {{ page.title | default: "Accelerating AI Adoption Through" }}
-        <span class="highlight">Trusted Practices</span>
-      </h2>
+        <span class="highlight">{{ page.highlight | default: "Trusted Practices" }}</span>
+      </h1>
       
       <p class="hero-subtitle">
-        {{ content | strip_html | truncatewords: 30 | default: "At Oikyo.ai, we help organizations navigate the complex landscape of artificial intelligence adoption with confidence and strategic clarity. From strategy development to implementation and governance, we're your trusted partner in AI transformation." }}
+        {{ content | strip_html | truncatewords: 30 }}
       </p>
       
       <div class="hero-actions">
