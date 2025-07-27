@@ -32,23 +32,31 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Check backdrop-filter support and apply fallback
   function checkBackdropFilterSupport() {
+    // More comprehensive backdrop-filter support test
     const testEl = document.createElement('div');
     testEl.style.cssText = 'backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);';
-    const supportsBackdropFilter = testEl.style.backdropFilter !== '' || testEl.style.webkitBackdropFilter !== '';
+    
+    // Check CSS.supports as well
+    const cssSupports = CSS.supports && (
+      CSS.supports('backdrop-filter', 'blur(1px)') || 
+      CSS.supports('-webkit-backdrop-filter', 'blur(1px)')
+    );
+    
+    const styleSupports = testEl.style.backdropFilter !== '' || testEl.style.webkitBackdropFilter !== '';
+    const supportsBackdropFilter = cssSupports || styleSupports;
     
     console.log('🔍 Backdrop-filter support check:');
     console.log('backdrop-filter:', testEl.style.backdropFilter);
     console.log('-webkit-backdrop-filter:', testEl.style.webkitBackdropFilter);
-    console.log('Supports backdrop-filter:', supportsBackdropFilter);
+    console.log('CSS.supports backdrop-filter:', cssSupports);
+    console.log('Style test result:', styleSupports);
+    console.log('Final supports backdrop-filter:', supportsBackdropFilter);
     
-    if (!supportsBackdropFilter) {
-      document.documentElement.classList.add('no-backdrop-filter');
-      console.log('❌ Added no-backdrop-filter class');
-    } else {
-      console.log('✅ Backdrop-filter is supported');
-    }
+    // Force enable for testing - remove the no-backdrop-filter fallback
+    console.log('🧪 FORCING backdrop-filter enabled for testing');
+    document.documentElement.classList.remove('no-backdrop-filter');
     
-    return supportsBackdropFilter;
+    return true; // Force true for testing
   }
   
   const backdropSupported = checkBackdropFilterSupport();

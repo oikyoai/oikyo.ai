@@ -7,10 +7,10 @@
   right: 0;
   z-index: $z-50;
   
-  // Very translucent by default for true glass effect
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  backdrop-filter: blur(20px) saturate(1.5);
+  // Extremely translucent for testing - should show background clearly
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  backdrop-filter: blur(10px) saturate(1.2);
   
   // Critical for Chrome backdrop-filter support
   isolation: isolate;
@@ -435,49 +435,49 @@ body {
   }
 }
 
-// Enhanced fallback for browsers that don't support backdrop-filter
-@supports not (backdrop-filter: blur(1px)) {
-  .site-header {
-    background: rgba(255, 255, 255, 0.95) !important;
-    
-    &.scrolled {
-      background: rgba(255, 255, 255, 0.98) !important;
-    }
-  }
-  
-  .mobile-menu {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
-}
+// Enhanced fallback for browsers that don't support backdrop-filter - DISABLED FOR TESTING
+// @supports not (backdrop-filter: blur(1px)) {
+//   .site-header {
+//     background: rgba(255, 255, 255, 0.95) !important;
+//     
+//     &.scrolled {
+//       background: rgba(255, 255, 255, 0.98) !important;
+//     }
+//   }
+//   
+//   .mobile-menu {
+//     background: rgba(255, 255, 255, 0.95) !important;
+//   }
+// }
 
-@supports not (-webkit-backdrop-filter: blur(1px)) {
-  .site-header {
-    background: rgba(255, 255, 255, 0.95) !important;
-    
-    &.scrolled {
-      background: rgba(255, 255, 255, 0.98) !important;
-    }
-  }
-  
-  .mobile-menu {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
-}
+// @supports not (-webkit-backdrop-filter: blur(1px)) {
+//   .site-header {
+//     background: rgba(255, 255, 255, 0.95) !important;
+//     
+//     &.scrolled {
+//       background: rgba(255, 255, 255, 0.98) !important;
+//     }
+//   }
+//   
+//   .mobile-menu {
+//     background: rgba(255, 255, 255, 0.95) !important;
+//   }
+// }
 
 // Force backdrop-filter for Chrome
 .site-header {
   will-change: backdrop-filter;
 }
 
-// JavaScript fallback for browsers without backdrop-filter
-.no-backdrop-filter .site-header {
-  background: rgba(255, 255, 255, 0.95) !important;
-  
-  &.scrolled {
-    background: rgba(255, 255, 255, 0.98) !important;
-  }
-}
+// JavaScript fallback for browsers without backdrop-filter - DISABLED FOR TESTING
+// .no-backdrop-filter .site-header {
+//   background: rgba(255, 255, 255, 0.95) !important;
+//   
+//   &.scrolled {
+//     background: rgba(255, 255, 255, 0.98) !important;
+//   }
+// }
 
-.no-backdrop-filter .mobile-menu {
-  background: rgba(255, 255, 255, 0.95) !important;
-}
+// .no-backdrop-filter .mobile-menu {
+//   background: rgba(255, 255, 255, 0.95) !important;
+// }
