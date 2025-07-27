@@ -364,12 +364,18 @@
   }
 }
 
-// Add body padding to account for fixed header
+// Remove body padding to allow content to flow under header
 body {
-  padding-top: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+// Apply negative margin to first section to allow content to flow under header
+.hero {
+  margin-top: -60px;
   
   @media (max-width: $breakpoint-md) {
-    padding-top: 56px;
+    margin-top: -56px;
   }
 }
 

@@ -51,7 +51,7 @@
   <style>
     body { 
       margin: 0; 
-      padding-top: 60px; 
+      padding: 0; 
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-display: swap;
     }
@@ -100,6 +100,10 @@
       display: none;
       visibility: hidden;
     }
+    .hero {
+      margin-top: -60px;
+      padding-top: calc(5rem + 60px);
+    }
     h1 {
       font-size: 3.75rem;
     }
@@ -108,10 +112,10 @@
       .mobile-menu { display: block; }
     }
     @media (max-width: 768px) {
-      body { padding-top: 56px; }
       .site-header { height: 56px; }
       .navbar { height: 56px; padding: 0 16px; }
       .navbar-brand img { width: 48px; height: 48px; }
+      .hero { margin-top: -56px; padding-top: calc(4rem + 56px); }
     }
   </style>
   
