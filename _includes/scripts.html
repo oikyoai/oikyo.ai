@@ -1,14 +1,4 @@
 <script>
-// Prevent FOUC by showing content once loaded
-document.addEventListener('DOMContentLoaded', function() {
-  document.body.classList.add('loaded');
-});
-
-// Also show content when window loads (for slower connections)
-window.addEventListener('load', function() {
-  document.body.classList.add('loaded');
-});
-
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -17,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('open');
+      const isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open');
+      mobileMenuToggle.setAttribute('aria-expanded', isOpen);
     });
     
     // Close mobile menu when clicking on a link
@@ -27,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', function() {
         mobileMenu.classList.remove('open');
         hamburger.classList.remove('open');
+        mobileMenuToggle.setAttribute('aria-expanded', false);
       });
     });
     
@@ -35,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
         mobileMenu.classList.remove('open');
         hamburger.classList.remove('open');
+        mobileMenuToggle.setAttribute('aria-expanded', false);
       }
     });
   }

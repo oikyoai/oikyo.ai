@@ -5,19 +5,35 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | default: 'Oikyo.ai - Accelerating AI adoption through trusted practices and platforms. Expert AI strategy consulting, platform implementation, and governance solutions.' }}{% endif %}">
+  <meta name="keywords" content="AI consulting, artificial intelligence, AI strategy, AI implementation, AI governance, machine learning, digital transformation">
+  <meta name="author" content="{{ site.company.name }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
+  <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="twitter:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
 
   {%- seo -%}
   
-  <!-- Critical CSS to prevent FOUC -->
+  <!-- Critical CSS for immediate rendering -->
   <style>
     body { 
       margin: 0; 
       padding-top: 60px; 
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      opacity: 0;
-      transition: opacity 0.3s ease;
     }
-    body.loaded { opacity: 1; }
     .site-header { 
       position: fixed; 
       top: 0; 

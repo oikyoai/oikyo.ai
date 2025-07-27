@@ -18,7 +18,7 @@
     <div class="navbar-actions">
       <a href="/contact/" class="cta-button">Get Started</a>
       
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -28,7 +28,7 @@
     </div>
   </nav>
   
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation menu">
     <ul class="mobile-nav">
       {% for nav_item in site.data.navigation.main %}
       <li class="nav-item">
