@@ -1,4 +1,14 @@
 <script>
+// Prevent FOUC by showing content once loaded
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('loaded');
+});
+
+// Also show content when window loads (for slower connections)
+window.addEventListener('load', function() {
+  document.body.classList.add('loaded');
+});
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
