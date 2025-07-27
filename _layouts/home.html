@@ -24,7 +24,7 @@ layout: default
         {% for service in site.data.services.services limit:3 %}
         <div class="hero-feature">
           <div class="feature-icon">
-            <span>🚀</span>
+            <span>{{ forloop.index }}</span>
           </div>
           <h3 class="feature-title">{{ service.title }}</h3>
           <p class="feature-description">{{ service.description }}</p>
@@ -79,19 +79,19 @@ layout: default
         </p>
         <ul class="about-features">
           <li>
-            <span class="feature-icon">✓</span>
+            <span class="feature-icon"></span>
             <span class="feature-text">Trusted Expertise</span>
           </li>
           <li>
-            <span class="feature-icon">✓</span>
+            <span class="feature-icon"></span>
             <span class="feature-text">Holistic Approach</span>
           </li>
           <li>
-            <span class="feature-icon">✓</span>
+            <span class="feature-icon"></span>
             <span class="feature-text">Proven Methodology</span>
           </li>
           <li>
-            <span class="feature-icon">✓</span>
+            <span class="feature-icon"></span>
             <span class="feature-text">Ongoing Partnership</span>
           </li>
         </ul>

@@ -4,7 +4,7 @@
  */
 
 function createLiquidGlass() {
-  console.log('🌊 Initializing Liquid Glass Effect...');
+  console.log('Initializing Liquid Glass Effect...');
   
   // Check if already exists
   if (document.getElementById('liquid-glass-container')) {
@@ -48,7 +48,7 @@ function createLiquidGlass() {
       font-size: 14px;
       font-weight: 500;
     ">
-      <div style="margin-bottom: 10px; font-size: 24px;">🌊</div>
+      <div style="margin-bottom: 10px; font-size: 24px; font-weight: 600;">LG</div>
       <div>Liquid Glass</div>
       <div style="font-size: 12px; opacity: 0.7; margin-top: 5px;">Drag me around!</div>
     </div>
@@ -147,7 +147,7 @@ function createLiquidGlass() {
     }
   });
 
-  console.log('🌊 Liquid Glass Effect created! You can drag it around the page.');
+  console.log('Liquid Glass Effect created! You can drag it around the page.');
   
   return {
     element: container,
@@ -155,7 +155,7 @@ function createLiquidGlass() {
     destroy() {
       container.remove();
       svg.remove();
-      console.log('🌊 Liquid Glass Effect destroyed');
+      console.log('Liquid Glass Effect destroyed');
     }
   };
 }
@@ -177,7 +177,7 @@ class OptimizedLiquidGlass {
     if (this.shouldEnable) {
       this.init();
     } else {
-      console.log('🌊 Liquid Glass disabled: device not compatible or user prefers reduced motion');
+      console.log('Liquid Glass disabled: device not compatible or user prefers reduced motion');
     }
   }
   
@@ -208,14 +208,14 @@ if (typeof window !== 'undefined') {
   // Expose control functions
   window.LiquidGlassControls = {
     enable() {
-      console.log('🌊 Enabling Liquid Glass...');
+      console.log('Enabling Liquid Glass...');
       localStorage.setItem('liquid-glass-enabled', 'true');
       if (!liquidGlassInstance) {
         liquidGlassInstance = new OptimizedLiquidGlass();
       }
     },
     disable() {
-      console.log('🌊 Disabling Liquid Glass...');
+      console.log('Disabling Liquid Glass...');
       localStorage.setItem('liquid-glass-enabled', 'false');
       if (liquidGlassInstance) {
         liquidGlassInstance.destroy();
@@ -226,17 +226,17 @@ if (typeof window !== 'undefined') {
       const isEnabled = localStorage.getItem('liquid-glass-enabled') !== 'false';
       if (isEnabled) {
         this.disable();
-        console.log('🌊 Liquid Glass toggled OFF');
+        console.log('Liquid Glass toggled OFF');
         return false;
       } else {
         this.enable();
-        console.log('🌊 Liquid Glass toggled ON');
+        console.log('Liquid Glass toggled ON');
         return true;
       }
     },
     create() {
       // Direct creation for testing
-      console.log('🌊 Creating Liquid Glass directly...');
+      console.log('Creating Liquid Glass directly...');
       return createLiquidGlass();
     }
   };

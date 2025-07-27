@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const styleSupports = testEl.style.backdropFilter !== '' || testEl.style.webkitBackdropFilter !== '';
     const supportsBackdropFilter = cssSupports || styleSupports;
     
-    console.log('🔍 Backdrop-filter support check:');
+    console.log('Backdrop-filter support check:');
     console.log('backdrop-filter:', testEl.style.backdropFilter);
     console.log('-webkit-backdrop-filter:', testEl.style.webkitBackdropFilter);
     console.log('CSS.supports backdrop-filter:', cssSupports);
@@ -53,21 +53,21 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Final supports backdrop-filter:', supportsBackdropFilter);
     
     // Force enable for testing - remove the no-backdrop-filter fallback
-    console.log('🧪 FORCING backdrop-filter enabled for testing');
+    console.log('FORCING backdrop-filter enabled for testing');
     document.documentElement.classList.remove('no-backdrop-filter');
     
     return true; // Force true for testing
   }
   
   const backdropSupported = checkBackdropFilterSupport();
-  console.log('🌊 Final backdrop-filter support:', backdropSupported);
+  console.log('Final backdrop-filter support:', backdropSupported);
   
   // Liquid Glass Header Implementation using SVG Displacement Maps
   class LiquidGlassHeader {
     constructor() {
       this.header = document.getElementById('site-header');
       if (!this.header) {
-        console.log('❌ Header element not found');
+        console.log('Header element not found');
         return;
       }
       
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
       this.createSVGFilter();
       this.setupEventListeners();
       this.updateShader();
-      console.log('✅ Liquid glass header initialized');
+      console.log('Liquid glass header initialized');
     }
     
     createSVGFilter() {
@@ -194,12 +194,12 @@ document.addEventListener('DOMContentLoaded', function() {
         this.header.style.setProperty('--liquid-glass-filter', `url(#${this.id}_filter)`);
         this.header.classList.add('scrolled', 'liquid-glass-active');
         this.updateShader();
-        console.log('🌊 Header scrolled - liquid glass activated');
+        console.log('Header scrolled - liquid glass activated');
       } else {
         // Remove liquid glass filter
         this.header.style.removeProperty('--liquid-glass-filter');
         this.header.classList.remove('scrolled', 'liquid-glass-active');
-        console.log('⬆️ Header at top - translucent mode');
+        console.log('Header at top - translucent mode');
       }
     }
     
