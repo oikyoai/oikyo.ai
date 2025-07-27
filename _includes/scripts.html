@@ -1,124 +1,67 @@
 <script>
-// Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu functionality
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const hamburger = mobileMenuToggle.querySelector('.hamburger');
   
   if (mobileMenuToggle && mobileMenu) {
+    const hamburger = mobileMenuToggle.querySelector('.hamburger');
+    
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger?.classList.remove('open');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    }
+    
     mobileMenuToggle.addEventListener('click', function() {
       const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open');
+      hamburger?.classList.toggle('open');
       mobileMenuToggle.setAttribute('aria-expanded', isOpen);
     });
     
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        mobileMenuToggle.setAttribute('aria-expanded', false);
-      });
+    mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
     });
     
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        mobileMenuToggle.setAttribute('aria-expanded', false);
+    document.addEventListener('click', function(e) {
+      if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
       }
     });
   }
-});
-
-// Header scroll effect
-document.addEventListener('DOMContentLoaded', function() {
+  
+  // Header scroll effect
   const header = document.getElementById('site-header');
-  
   if (header) {
+    let ticking = false;
+    function updateHeader() {
+      header.classList.toggle('scrolled', window.scrollY > 100);
+      ticking = false;
+    }
+    
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
       }
     });
   }
-});
-
-// Smooth scrolling for anchor links
-document.addEventListener('DOMContentLoaded', function() {
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
   
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      
-      if (targetSection) {
-        e.preventDefault();
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-});
-
-// Form handling (if needed)
-document.addEventListener('DOMContentLoaded', function() {
-  const forms = document.querySelectorAll('form');
-  
-  forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
-      // Add any form validation or submission logic here
-      console.log('Form submitted');
-    });
-  });
-});
-
-// Glass effect enhancements
-document.addEventListener('DOMContentLoaded', function() {
-  // Add glass effect hover animations
-  const glassCards = document.querySelectorAll('.glass-card');
-  
-  glassCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-4px)';
-    });
+  // Intersection Observer for animations
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     
-    card.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
+    document.querySelectorAll('.service-card, .hero-feature, .glass-card').forEach(el => {
+      el.style.cssText = 'opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease';
+      observer.observe(el);
     });
-  });
-});
-
-// Intersection Observer for animations
-document.addEventListener('DOMContentLoaded', function() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, observerOptions);
-  
-  // Observe elements for animation
-  const animateElements = document.querySelectorAll('.service-card, .hero-feature, .glass-card');
-  animateElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+  }
 });
 </script>
