@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
       this.lastScrollY = 0;
       this.scrollThreshold = 80;
       this.scrollHysteresis = 30; // Prevent rapid toggling
-      this.width = Math.max(1280, window.innerWidth);
-      this.height = 80;
-      this.canvasDPI = 0.5; // Reduce for performance
+      this.width = Math.min(800, window.innerWidth); // Cap width for performance
+      this.height = 60;
+      this.canvasDPI = 0.25; // Further reduce for performance
       this.id = 'liquid-glass-header-' + Math.random().toString(36).substr(2, 9);
       
       this.init();
@@ -216,56 +216,62 @@ document.addEventListener('DOMContentLoaded', function() {
     updateShader() {
       if (!this.scrolled) return; // Only apply displacement when scrolled
       
-      const w = this.width * this.canvasDPI;
-      const h = this.height * this.canvasDPI;
+      // Reduce canvas size for better performance
+      const w = Math.min(this.width * this.canvasDPI, 320);
+      const h = Math.min(this.height * this.canvasDPI, 40);
       const data = new Uint8ClampedArray(w * h * 4);
 
       let maxScale = 0;
       const rawValues = [];
 
-      // Generate displacement map based on mouse position and header geometry
+      // Simplified displacement calculation for performance
+      const mouseX = (this.mouse.x - 0.5) * 0.2;
+      const mouseY = (this.mouse.y - 0.5) * 0.1;
+      const mouseDist = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
+
+      // Use simpler calculation to reduce main-thread blocking
       for (let i = 0; i < data.length; i += 4) {
         const x = (i / 4) % w;
         const y = Math.floor(i / 4 / w);
         const uv = { x: x / w, y: y / h };
         
-        // Liquid glass fragment shader logic
         const ix = uv.x - 0.5;
         const iy = uv.y - 0.5;
         
-        // Distance from mouse with smoother falloff
-        const mouseX = (this.mouse.x - 0.5) * 0.3;
-        const mouseY = (this.mouse.y - 0.5) * 0.15;
-        const mouseDist = this.length(mouseX, mouseY);
+        // Simplified displacement calculation
+        const dist = Math.sqrt(ix * ix + iy * iy);
+        const displacement = Math.max(0, 1 - (dist + mouseDist) * 3);
+        const scaled = displacement * 0.7 + 0.3;
         
-        const distanceToEdge = this.roundedRectSDF(ix, iy, 0.35, 0.12, 0.25);
-        const displacement = this.smoothStep(0.4, 0, distanceToEdge - 0.08 - mouseDist);
-        const scaled = this.smoothStep(0, 1, displacement) * 0.85 + 0.15;
-        
-        const pos = this.texture(ix * scaled + 0.5, iy * scaled + 0.5);
-        const dx = pos.x * w - x;
-        const dy = pos.y * h - y;
+        const dx = ix * scaled * w - x;
+        const dy = iy * scaled * h - y;
         
         maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
         rawValues.push(dx, dy);
       }
 
-      maxScale *= 0.2; // Reduce intensity for subtle header effect
+      maxScale *= 0.15; // Reduce intensity for subtle effect
 
-      // Apply displacement values to canvas
+      // Apply displacement values with reduced precision
       let index = 0;
       for (let i = 0; i < data.length; i += 4) {
-        const r = rawValues[index++] / maxScale + 0.5;
-        const g = rawValues[index++] / maxScale + 0.5;
-        data[i] = Math.max(0, Math.min(255, r * 255));
-        data[i + 1] = Math.max(0, Math.min(255, g * 255));
+        const r = Math.round((rawValues[index++] / maxScale + 0.5) * 255);
+        const g = Math.round((rawValues[index++] / maxScale + 0.5) * 255);
+        data[i] = Math.max(0, Math.min(255, r));
+        data[i + 1] = Math.max(0, Math.min(255, g));
         data[i + 2] = 0;
         data[i + 3] = 255;
       }
 
+      // Update only if canvas size changed
+      if (this.canvas.width !== w || this.canvas.height !== h) {
+        this.canvas.width = w;
+        this.canvas.height = h;
+      }
+
       this.context.putImageData(new ImageData(data, w, h), 0, 0);
       this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
-      this.feDisplacementMap.setAttribute('scale', (maxScale / this.canvasDPI * 1.5).toString());
+      this.feDisplacementMap.setAttribute('scale', (maxScale / this.canvasDPI * 1.2).toString());
     }
   }
   
