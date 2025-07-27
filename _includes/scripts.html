@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(updateHeader);
         ticking = true;
       }
-    });
+    }, { passive: true });
   }
   
   // Intersection Observer for animations - optimized

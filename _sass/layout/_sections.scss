@@ -81,10 +81,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $space-8;
+  min-height: 600px;
   
   @media (max-width: $breakpoint-md) {
     grid-template-columns: 1fr;
     gap: $space-6;
+    min-height: 800px;
   }
 }
 

@@ -22,22 +22,22 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/images/logo_rgb_optimized.png' | absolute_url }}">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ page.url | absolute_url }}">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="twitter:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
+  <meta property="twitter:image" content="{{ '/assets/images/logo_rgb_optimized.png' | absolute_url }}">
 
   {%- seo -%}
   
   <!-- Performance optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap&subset=latin"></noscript>
   
   <!-- Preload critical assets -->
   <link rel="preload" href="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}" as="image" type="image/png">
@@ -108,7 +108,7 @@
   
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
-  <link rel="icon" type="image/png" href="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}">
   
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}

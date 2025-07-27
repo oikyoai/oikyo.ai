@@ -10,7 +10,7 @@ Ready to accelerate your AI adoption? Get in touch with our team of experts.
 
 ## Get Started
 
-**Email:** [hello@oikyo.ai](mailto:hello@oikyo.ai)  
+**Email:** hello@oikyo.ai  
 **Phone:** +1 (555) 123-4567
 
 ## Follow Us
