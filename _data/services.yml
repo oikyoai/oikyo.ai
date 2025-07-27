@@ -1,0 +1,32 @@
+services:
+  - title: "AI Strategy & Roadmap"
+    description: "Develop comprehensive AI adoption strategies"
+    icon: "strategy-icon.svg"
+    features:
+      - "Current state assessment"
+      - "ROI modeling"
+      - "Implementation roadmap"
+
+  - title: "Platform Selection"
+    description: "Choose the right AI platforms for your needs"
+    icon: "platform-icon.svg"
+    features:
+      - "Vendor evaluation"
+      - "Technical assessment"
+      - "Integration planning"
+
+  - title: "Training & Change Management"
+    description: "Ensure successful AI adoption across your organization"
+    icon: "training-icon.svg"
+    features:
+      - "Staff training programs"
+      - "Change management"
+      - "Best practices implementation"
+
+  - title: "Compliance & Ethics"
+    description: "Navigate AI governance and regulatory requirements"
+    icon: "compliance-icon.svg"
+    features:
+      - "Regulatory compliance"
+      - "Ethics frameworks"
+      - "Risk assessment"

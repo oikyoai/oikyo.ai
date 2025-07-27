@@ -1,0 +1,38 @@
+title: "Oikyo.ai"
+description: "Accelerating AI adoption through trusted practices and platforms"
+url: "https://oikyo.ai"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Custom settings
+company:
+  name: "Oikyo.ai"
+  tagline: "Trusted AI Adoption"
+  email: "hello@oikyo.ai"
+  phone: "+1 (555) 123-4567"
+
+# Social links
+social:
+  linkedin: "company/oikyo-ai"
+  twitter: "oikyoai"
+
+# SEO
+google_analytics: "G-XXXXXXXXXX"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/

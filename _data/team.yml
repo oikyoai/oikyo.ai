@@ -1,0 +1,18 @@
+members:
+  - name: "John Doe"
+    role: "CEO & AI Strategy Lead"
+    bio: "Expert in AI strategy and organizational transformation"
+    image: "team/john-doe.jpg"
+    linkedin: "johndoe"
+
+  - name: "Jane Smith"
+    role: "CTO & Platform Architect"
+    bio: "Technical lead with deep experience in AI platform implementation"
+    image: "team/jane-smith.jpg"
+    linkedin: "janesmith"
+
+  - name: "Mike Johnson"
+    role: "Head of Consulting"
+    bio: "Specializes in change management and AI adoption strategies"
+    image: "team/mike-johnson.jpg"
+    linkedin: "mikejohnson"
