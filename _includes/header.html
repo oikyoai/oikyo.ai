@@ -1,0 +1,48 @@
+<header class="site-header" id="site-header">
+  <nav class="navbar">
+    <a class="navbar-brand" href="{{ "/" | relative_url }}">
+      <img src="{{ "/assets/images/logo_rgb.png" | relative_url }}" alt="Oikyo.ai Logo" class="logo">
+      <span class="brand-text">{{ site.company.name }}</span>
+    </a>
+    
+    <ul class="navbar-nav">
+      {% for nav_item in site.data.navigation.main %}
+      <li class="nav-item">
+        <a class="nav-link{% if page.url == nav_item.url %} active{% endif %}" 
+           href="{{ nav_item.url | relative_url }}">
+          {{ nav_item.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <div class="navbar-actions">
+      <a href="/contact/" class="cta-button">Get Started</a>
+      
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-nav">
+      {% for nav_item in site.data.navigation.main %}
+      <li class="nav-item">
+        <a class="nav-link{% if page.url == nav_item.url %} active{% endif %}" 
+           href="{{ nav_item.url | relative_url }}">
+          {{ nav_item.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <div class="mobile-cta">
+      <a href="/contact/" class="cta-button">Get Started</a>
+    </div>
+  </div>
+</header>

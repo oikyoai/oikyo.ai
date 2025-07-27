@@ -1,0 +1,196 @@
+// Glassmorphism Components
+// Apple Liquid Glass Design Language
+
+// Base glass effect
+@mixin glass-base {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid $glass-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-glass;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-glass;
+    opacity: 0.8;
+    z-index: -1;
+  }
+}
+
+// Glass card component
+.glass-card {
+  @include glass-base;
+  background: $glass-bg;
+  padding: $space-8;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    
+    &::before {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Glass navigation
+.glass-nav {
+  @include glass-base;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid $glass-border;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-50;
+  padding: $space-4 0;
+  
+  &::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  }
+}
+
+// Glass button
+.glass-button {
+  @include glass-base;
+  background: $glass-bg;
+  padding: $space-3 $space-6;
+  border: none;
+  cursor: pointer;
+  font-family: $font-primary;
+  font-weight: $font-medium;
+  font-size: $text-base;
+  color: $gray-900;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  // Primary variant
+  &--primary {
+    background: $gradient-primary;
+    color: $white;
+    
+    &::before {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    }
+  }
+  
+  // Secondary variant
+  &--secondary {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Glass input
+.glass-input {
+  @include glass-base;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid $glass-border;
+  padding: $space-3 $space-4;
+  font-family: $font-primary;
+  font-size: $text-base;
+  color: $gray-900;
+  width: 100%;
+  transition: all 0.2s ease;
+  
+  &::placeholder {
+    color: $gray-500;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba(5, 112, 222, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// Glass hero section
+.glass-hero {
+  background: $gradient-hero;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(5, 112, 222, 0.1) 0%, rgba(157, 78, 221, 0.05) 50%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.08) 0%, transparent 60%);
+    animation: float 25s ease-in-out infinite reverse;
+  }
+}
+
+// Glass container
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: $radius-2xl;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: $space-8;
+}
+
+// Animation for floating elements
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+// Utility classes
+.glass-bg { background: $glass-bg; }
+.glass-border { border: 1px solid $glass-border; }
+.glass-shadow { box-shadow: $shadow-glass; }
+.glass-blur { 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

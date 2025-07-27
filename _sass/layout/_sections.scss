@@ -1,0 +1,330 @@
+// Section Layouts and Components
+
+// Base section styling
+.section {
+  padding: $space-20 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-16 0;
+  }
+  
+  &--gray {
+    background: $gray-50;
+  }
+  
+  &--dark {
+    background: $gray-900;
+    color: $white;
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: $white;
+    }
+    
+    p {
+      color: $gray-300;
+    }
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $space-6;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $space-4;
+  }
+}
+
+// Section headers
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto $space-16;
+  
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: $space-12;
+  }
+  
+  .section-title {
+    font-size: $text-4xl;
+    font-weight: $font-bold;
+    margin-bottom: $space-4;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-3xl;
+    }
+    
+    .highlight {
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+  
+  .section-subtitle {
+    font-size: $text-xl;
+    color: $gray-600;
+    line-height: 1.6;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-lg;
+    }
+  }
+}
+
+// Services grid
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space-8;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+}
+
+.service-card {
+  @extend .glass-card;
+  text-align: center;
+  padding: $space-8;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-6;
+  }
+  
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $space-6;
+    background: $gradient-primary;
+    border-radius: $radius-2xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: $text-2xl;
+    
+    @media (max-width: $breakpoint-md) {
+      width: 56px;
+      height: 56px;
+      font-size: $text-xl;
+    }
+  }
+  
+  .service-title {
+    font-size: $text-xl;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-4;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-lg;
+    }
+  }
+  
+  .service-description {
+    color: $gray-600;
+    line-height: 1.6;
+    margin-bottom: $space-6;
+  }
+  
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $space-6;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: $space-2;
+      color: $gray-700;
+      font-size: $text-sm;
+      margin-bottom: $space-2;
+      
+      &::before {
+        content: '✓';
+        color: $primary-teal;
+        font-weight: $font-bold;
+        font-size: $text-base;
+      }
+    }
+  }
+  
+  .service-link {
+    @extend .glass-button;
+    @extend .glass-button--secondary;
+    font-size: $text-sm;
+    padding: $space-2 $space-4;
+  }
+}
+
+// About section
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-12;
+  align-items: center;
+  
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+  }
+}
+
+.about-text {
+  .about-title {
+    font-size: $text-3xl;
+    font-weight: $font-bold;
+    margin-bottom: $space-6;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-2xl;
+    }
+  }
+  
+  .about-description {
+    font-size: $text-lg;
+    color: $gray-600;
+    line-height: 1.7;
+    margin-bottom: $space-6;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-base;
+    }
+  }
+  
+  .about-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $space-8;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      margin-bottom: $space-3;
+      
+      .feature-icon {
+        width: 20px;
+        height: 20px;
+        background: $gradient-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        font-size: $text-xs;
+        flex-shrink: 0;
+      }
+      
+      .feature-text {
+        color: $gray-700;
+        font-weight: $font-medium;
+      }
+    }
+  }
+}
+
+.about-image {
+  @extend .glass-container;
+  text-align: center;
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-xl;
+  }
+}
+
+// Contact section
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-form {
+  @extend .glass-card;
+  padding: $space-8;
+  text-align: left;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-6;
+  }
+  
+  .form-group {
+    margin-bottom: $space-6;
+    
+    label {
+      display: block;
+      font-weight: $font-medium;
+      color: $gray-900;
+      margin-bottom: $space-2;
+    }
+    
+    input,
+    textarea {
+      @extend .glass-input;
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+  }
+  
+  .form-submit {
+    @extend .glass-button;
+    @extend .glass-button--primary;
+    width: 100%;
+    justify-content: center;
+    padding: $space-4;
+    font-size: $text-base;
+    font-weight: $font-semibold;
+  }
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $space-6;
+  margin-top: $space-12;
+  
+  .contact-item {
+    text-align: center;
+    
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto $space-3;
+      background: $gradient-primary;
+      border-radius: $radius-xl;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: $text-lg;
+    }
+    
+    .contact-label {
+      font-weight: $font-semibold;
+      color: $gray-900;
+      margin-bottom: $space-1;
+    }
+    
+    .contact-value {
+      color: $gray-600;
+      
+      a {
+        color: $gray-600;
+        
+        &:hover {
+          color: $primary-blue;
+        }
+      }
+    }
+  }
+}

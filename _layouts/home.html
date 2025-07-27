@@ -1,0 +1,122 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        {{ page.title | default: "Accelerating AI Adoption Through" }}
+        <span class="highlight">Trusted Practices</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        {{ content | strip_html | truncatewords: 30 | default: "At Oikyo.ai, we help organizations navigate the complex landscape of artificial intelligence adoption with confidence and strategic clarity. From strategy development to implementation and governance, we're your trusted partner in AI transformation." }}
+      </p>
+      
+      <div class="hero-actions">
+        <a href="/contact/" class="btn-primary">Get Started</a>
+        <a href="/services/" class="btn-secondary">Our Services</a>
+      </div>
+      
+      <div class="hero-features">
+        {% for service in site.data.services.services limit:3 %}
+        <div class="hero-feature">
+          <div class="feature-icon">
+            <span>🚀</span>
+          </div>
+          <h3 class="feature-title">{{ service.title }}</h3>
+          <p class="feature-description">{{ service.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <div class="scroll-arrow"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+      <p class="section-subtitle">
+        Comprehensive AI adoption consulting to help your organization successfully implement and scale artificial intelligence initiatives.
+      </p>
+    </div>
+    
+    <div class="services-grid">
+      {% for service in site.data.services.services %}
+      <div class="service-card">
+        <div class="service-icon">
+          <span>{{ forloop.index }}</span>
+        </div>
+        <h3 class="service-title">{{ service.title }}</h3>
+        <p class="service-description">{{ service.description }}</p>
+        <ul class="service-features">
+          {% for feature in service.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+        <a href="/services/" class="service-link">Learn More</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2 class="about-title">Why Choose <span class="highlight">Oikyo.ai</span></h2>
+        <p class="about-description">
+          We believe that artificial intelligence should be accessible, trustworthy, and transformative for every organization. Our expertise combines deep technical knowledge with real-world implementation experience.
+        </p>
+        <ul class="about-features">
+          <li>
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Trusted Expertise</span>
+          </li>
+          <li>
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Holistic Approach</span>
+          </li>
+          <li>
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Proven Methodology</span>
+          </li>
+          <li>
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Ongoing Partnership</span>
+          </li>
+        </ul>
+        <a href="/about/" class="btn-primary">Learn More About Us</a>
+      </div>
+      <div class="about-image">
+        <img src="{{ '/assets/images/logo_rgb.png' | relative_url }}" alt="Oikyo.ai Logo" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-content">
+      <div class="section-header">
+        <h2 class="section-title">Ready to <span class="highlight">Get Started?</span></h2>
+        <p class="section-subtitle">
+          Contact us today to learn how we can help your organization harness the power of artificial intelligence.
+        </p>
+      </div>
+      
+      <div class="hero-actions">
+        <a href="/contact/" class="btn-primary">Contact Us</a>
+        <a href="mailto:{{ site.company.email }}" class="btn-secondary">{{ site.company.email }}</a>
+      </div>
+    </div>
+  </div>
+</section>

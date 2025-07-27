@@ -1,0 +1,19 @@
+---
+# Main stylesheet for Oikyo.ai
+---
+
+// Import design system
+@import "base/variables";
+@import "base/typography";
+
+// Import components
+@import "components/glass";
+
+// Import layout
+@import "layout/navigation";
+@import "layout/hero";
+@import "layout/sections";
+
+// Import utilities
+@import "utilities/spacing";
+@import "utilities/layout";

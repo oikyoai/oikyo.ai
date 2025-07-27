@@ -1,0 +1,111 @@
+<footer class="section section--dark">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="{{ "/" | relative_url }}" class="footer-logo">
+          <img src="{{ "/assets/images/logo_bw.png" | relative_url }}" alt="Oikyo.ai Logo" style="height: 32px; filter: brightness(0) invert(1);">
+          <span style="color: white; font-weight: 600; margin-left: 12px;">{{ site.company.name }}</span>
+        </a>
+        <p style="color: #94a3b8; margin-top: 16px; max-width: 300px;">
+          {{ site.company.tagline }} - {{ site.description }}
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4 style="color: white; margin-bottom: 16px;">Company</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 8px;">
+              <a href="/about/" style="color: #94a3b8; text-decoration: none;">About</a>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/services/" style="color: #94a3b8; text-decoration: none;">Services</a>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/case-studies/" style="color: #94a3b8; text-decoration: none;">Case Studies</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 style="color: white; margin-bottom: 16px;">Contact</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 8px;">
+              <a href="mailto:{{ site.company.email }}" style="color: #94a3b8; text-decoration: none;">
+                {{ site.company.email }}
+              </a>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="tel:{{ site.company.phone }}" style="color: #94a3b8; text-decoration: none;">
+                {{ site.company.phone }}
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 style="color: white; margin-bottom: 16px;">Follow Us</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 8px;">
+              <a href="https://linkedin.com/{{ site.social.linkedin }}" 
+                 style="color: #94a3b8; text-decoration: none;" 
+                 target="_blank" rel="noopener">
+                LinkedIn
+              </a>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="https://twitter.com/{{ site.social.twitter }}" 
+                 style="color: #94a3b8; text-decoration: none;" 
+                 target="_blank" rel="noopener">
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-top: 1px solid #374151; margin-top: 48px; padding-top: 24px; text-align: center;">
+      <p style="color: #6b7280; margin: 0; font-size: 14px;">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.company.name }}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #0570de !important;
+}
+</style>
