@@ -43,12 +43,12 @@
 .hero-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 $space-6;
+  padding: 0 $space-2;
   position: relative;
   z-index: 2;
   
   @media (max-width: $breakpoint-md) {
-    padding: 0 $space-4;
+    padding: 0 $space-2;
   }
 }
 
