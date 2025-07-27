@@ -30,6 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // Check backdrop-filter support and apply fallback
+  function checkBackdropFilterSupport() {
+    const testEl = document.createElement('div');
+    testEl.style.cssText = 'backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);';
+    const supportsBackdropFilter = testEl.style.backdropFilter !== '' || testEl.style.webkitBackdropFilter !== '';
+    
+    if (!supportsBackdropFilter) {
+      document.documentElement.classList.add('no-backdrop-filter');
+    }
+    
+    return supportsBackdropFilter;
+  }
+  
+  checkBackdropFilterSupport();
+  
   // Enhanced header scroll effect for liquid glass
   const header = document.getElementById('site-header');
   if (header) {

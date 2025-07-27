@@ -9,8 +9,17 @@
   
   // True liquid glass effect - semi-transparent with backdrop blur
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(25px) saturate(1.8);
   -webkit-backdrop-filter: blur(25px) saturate(1.8);
+  backdrop-filter: blur(25px) saturate(1.8);
+  
+  // Additional Chrome support
+  @supports (backdrop-filter: blur(1px)) {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    background: rgba(255, 255, 255, 0.15);
+  }
   
   // Subtle borders and shadows for glass effect
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -23,8 +32,8 @@
   // Enhanced glass effect when scrolled
   &.scrolled {
     background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(30px) saturate(2);
     -webkit-backdrop-filter: blur(30px) saturate(2);
+    backdrop-filter: blur(30px) saturate(2);
     box-shadow: 
       0 1px 0 rgba(255, 255, 255, 0.5) inset,
       0 8px 32px rgba(0, 0, 0, 0.12),
@@ -268,8 +277,8 @@
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(25px) saturate(1.8);
   -webkit-backdrop-filter: blur(25px) saturate(1.8);
+  backdrop-filter: blur(25px) saturate(1.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 
     0 1px 0 rgba(255, 255, 255, 0.4) inset,
@@ -414,8 +423,8 @@ body {
   }
 }
 
-// Fallback for browsers that don't support backdrop-filter
-@supports not (backdrop-filter: blur(1px)) {
+// Enhanced fallback for browsers that don't support backdrop-filter
+@supports not (backdrop-filter: blur(1px)) and not (-webkit-backdrop-filter: blur(1px)) {
   .site-header {
     background: rgba(255, 255, 255, 0.95) !important;
     
@@ -429,16 +438,20 @@ body {
   }
 }
 
-@supports not (-webkit-backdrop-filter: blur(1px)) {
-  .site-header {
-    background: rgba(255, 255, 255, 0.95) !important;
-    
-    &.scrolled {
-      background: rgba(255, 255, 255, 0.98) !important;
-    }
-  }
+// Force backdrop-filter for Chrome
+.site-header {
+  will-change: backdrop-filter;
+}
+
+// JavaScript fallback for browsers without backdrop-filter
+.no-backdrop-filter .site-header {
+  background: rgba(255, 255, 255, 0.95) !important;
   
-  .mobile-menu {
-    background: rgba(255, 255, 255, 0.95) !important;
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
   }
+}
+
+.no-backdrop-filter .mobile-menu {
+  background: rgba(255, 255, 255, 0.95) !important;
 }
