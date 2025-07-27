@@ -40,12 +40,18 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
   
+  <!-- Preload critical assets -->
+  <link rel="preload" href="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}" as="image" type="image/png">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  
   <!-- Critical CSS for immediate rendering -->
   <style>
     body { 
       margin: 0; 
       padding-top: 60px; 
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-display: swap;
     }
     .site-header { 
       position: fixed; 
@@ -58,9 +64,43 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
+    .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .navbar-brand img {
+      width: 52px;
+      height: 52px;
+      display: block;
+    }
+    .mobile-menu {
+      display: none;
+      visibility: hidden;
+    }
+    @media (max-width: 1024px) {
+      .navbar-nav { display: none; }
+      .mobile-menu { display: block; }
+    }
     @media (max-width: 768px) {
       body { padding-top: 56px; }
       .site-header { height: 56px; }
+      .navbar { height: 56px; padding: 0 16px; }
+      .navbar-brand img { width: 48px; height: 48px; }
     }
   </style>
   

@@ -213,7 +213,6 @@
 
 // Mobile menu
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 60px;
   left: 0;
@@ -224,17 +223,20 @@
   border-bottom: 1px solid $glass-border;
   padding: $space-6;
   z-index: $z-40;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  
+  @media (min-width: $breakpoint-lg + 1px) {
+    display: none;
+  }
   
   @media (max-width: $breakpoint-lg) {
-    display: block;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.3s ease;
-    
-    &.open {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    top: 56px;
+  }
+  
+  &.open {
+    max-height: 400px;
   }
   
   .mobile-nav {

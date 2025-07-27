@@ -3,9 +3,11 @@
 // Base section styling
 .section {
   padding: $space-20 0;
+  min-height: 400px;
   
   @media (max-width: $breakpoint-md) {
     padding: $space-16 0;
+    min-height: 300px;
   }
   
   &--gray {

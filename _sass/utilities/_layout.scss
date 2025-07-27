@@ -15,6 +15,18 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+// Animation utilities
+.animate-ready {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 .d-block { display: block; }
 .d-inline { display: inline; }
 .d-inline-block { display: inline-block; }
