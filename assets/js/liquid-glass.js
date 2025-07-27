@@ -44,7 +44,7 @@ function createLiquidGlass() {
       padding: 20px;
       text-align: center;
       color: rgba(0, 0, 0, 0.7);
-      font-family: Inter, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
       font-size: 14px;
       font-weight: 500;
     ">
