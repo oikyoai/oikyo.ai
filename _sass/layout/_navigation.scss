@@ -35,7 +35,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
   
-  // Glass morphism gradient overlay - subtle for liquid glass
+  // Background layer for liquid glass effect (only distorts background, not content)
   &::before {
     content: '';
     position: absolute;
@@ -51,6 +51,12 @@
     );
     pointer-events: none;
     transition: opacity 0.3s ease;
+    z-index: -1; // Behind content
+  }
+  
+  // Apply liquid glass filter only to background layer when active
+  &.liquid-glass-active::before {
+    filter: var(--liquid-glass-filter, none);
   }
   
   &.scrolled::before {
@@ -72,7 +78,7 @@
   justify-content: space-between;
   height: 60px;
   position: relative;
-  z-index: 1;
+  z-index: 10; // Ensure content stays above liquid glass background
   
   @media (max-width: $breakpoint-md) {
     padding: 0 $space-2;

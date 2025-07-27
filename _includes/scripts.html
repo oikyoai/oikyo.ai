@@ -166,15 +166,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateHeaderState() {
       if (this.scrolled) {
-        // Apply liquid glass filter while preserving CSS styles
-        this.header.style.filter = `url(#${this.id}_filter)`;
-        this.header.classList.add('scrolled');
+        // Apply liquid glass filter to background pseudo-element only
+        this.header.style.setProperty('--liquid-glass-filter', `url(#${this.id}_filter)`);
+        this.header.classList.add('scrolled', 'liquid-glass-active');
         this.updateShader();
         console.log('🌊 Liquid glass effect activated');
       } else {
-        // Remove liquid glass filter, let CSS handle normal state
-        this.header.style.filter = 'none';
-        this.header.classList.remove('scrolled');
+        // Remove liquid glass filter
+        this.header.style.removeProperty('--liquid-glass-filter');
+        this.header.classList.remove('scrolled', 'liquid-glass-active');
         console.log('❄️ Liquid glass effect deactivated');
       }
     }
