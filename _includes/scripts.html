@@ -144,34 +144,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     setupEventListeners() {
-      // Mouse tracking - throttled for performance
+      // Mouse tracking - heavily throttled for smooth performance
       let mouseThrottle = false;
+      let lastMouseUpdate = 0;
       document.addEventListener('mousemove', (e) => {
-        if (!mouseThrottle && this.scrolled) {
+        const now = performance.now();
+        if (!mouseThrottle && this.scrolled && (now - lastMouseUpdate > 32)) { // ~30fps max
           mouseThrottle = true;
           requestAnimationFrame(() => {
             const rect = this.header.getBoundingClientRect();
             this.mouse.x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
             this.mouse.y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
             this.updateShader();
+            lastMouseUpdate = performance.now();
             mouseThrottle = false;
           });
         }
       }, { passive: true });
       
-      // Simplified scroll tracking with debouncing
+      // Scroll tracking with immediate response but debounced shader updates
       let scrollTimeout;
+      let shaderUpdateTimeout;
       window.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          const currentScrollY = window.scrollY;
-          const shouldBeScrolled = currentScrollY > this.scrollThreshold;
-          
-          if (shouldBeScrolled !== this.scrolled) {
-            this.scrolled = shouldBeScrolled;
-            this.updateHeaderState();
-          }
-        }, 50); // 50ms debounce
+        const currentScrollY = window.scrollY;
+        const shouldBeScrolled = currentScrollY > this.scrollThreshold;
+        
+        // Immediate header state change
+        if (shouldBeScrolled !== this.scrolled) {
+          this.scrolled = shouldBeScrolled;
+          this.updateHeaderState();
+        }
+        
+        // Debounced shader update to prevent flickering
+        clearTimeout(shaderUpdateTimeout);
+        if (this.scrolled) {
+          shaderUpdateTimeout = setTimeout(() => {
+            this.updateShader();
+          }, 100);
+        }
       }, { passive: true });
       
       // Initial state
@@ -216,20 +226,32 @@ document.addEventListener('DOMContentLoaded', function() {
     updateShader() {
       if (!this.scrolled) return; // Only apply displacement when scrolled
       
-      // Reduce canvas size for better performance
-      const w = Math.min(this.width * this.canvasDPI, 320);
-      const h = Math.min(this.height * this.canvasDPI, 40);
+      // Fixed canvas size to prevent flickering
+      const w = 160; // Fixed small size for performance
+      const h = 20;
+      
+      // Initialize canvas only once
+      if (!this.canvasInitialized) {
+        this.canvas.width = w;
+        this.canvas.height = h;
+        this.canvasInitialized = true;
+      }
+      
       const data = new Uint8ClampedArray(w * h * 4);
-
       let maxScale = 0;
       const rawValues = [];
 
-      // Simplified displacement calculation for performance
-      const mouseX = (this.mouse.x - 0.5) * 0.2;
-      const mouseY = (this.mouse.y - 0.5) * 0.1;
-      const mouseDist = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
+      // Smooth mouse interpolation to reduce jitter
+      const targetMouseX = (this.mouse.x - 0.5) * 0.15;
+      const targetMouseY = (this.mouse.y - 0.5) * 0.08;
+      
+      // Lerp for smoother animation
+      this.smoothMouseX = (this.smoothMouseX || 0) * 0.9 + targetMouseX * 0.1;
+      this.smoothMouseY = (this.smoothMouseY || 0) * 0.9 + targetMouseY * 0.1;
+      
+      const mouseDist = Math.sqrt(this.smoothMouseX * this.smoothMouseX + this.smoothMouseY * this.smoothMouseY);
 
-      // Use simpler calculation to reduce main-thread blocking
+      // Simplified calculation with consistent timing
       for (let i = 0; i < data.length; i += 4) {
         const x = (i / 4) % w;
         const y = Math.floor(i / 4 / w);
@@ -238,10 +260,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const ix = uv.x - 0.5;
         const iy = uv.y - 0.5;
         
-        // Simplified displacement calculation
+        // More stable displacement calculation
         const dist = Math.sqrt(ix * ix + iy * iy);
-        const displacement = Math.max(0, 1 - (dist + mouseDist) * 3);
-        const scaled = displacement * 0.7 + 0.3;
+        const displacement = Math.max(0, 0.8 - (dist + mouseDist) * 2.5);
+        const scaled = displacement * 0.6 + 0.4;
         
         const dx = ix * scaled * w - x;
         const dy = iy * scaled * h - y;
@@ -250,28 +272,30 @@ document.addEventListener('DOMContentLoaded', function() {
         rawValues.push(dx, dy);
       }
 
-      maxScale *= 0.15; // Reduce intensity for subtle effect
+      // Clamp max scale to prevent extreme values
+      maxScale = Math.min(maxScale * 0.12, 8);
 
-      // Apply displacement values with reduced precision
+      // Apply displacement with consistent scaling
       let index = 0;
       for (let i = 0; i < data.length; i += 4) {
-        const r = Math.round((rawValues[index++] / maxScale + 0.5) * 255);
-        const g = Math.round((rawValues[index++] / maxScale + 0.5) * 255);
-        data[i] = Math.max(0, Math.min(255, r));
-        data[i + 1] = Math.max(0, Math.min(255, g));
-        data[i + 2] = 0;
+        const r = Math.max(0, Math.min(255, Math.round((rawValues[index++] / maxScale + 0.5) * 255)));
+        const g = Math.max(0, Math.min(255, Math.round((rawValues[index++] / maxScale + 0.5) * 255)));
+        data[i] = r;
+        data[i + 1] = g;
+        data[i + 2] = 128; // Neutral blue channel
         data[i + 3] = 255;
       }
 
-      // Update only if canvas size changed
-      if (this.canvas.width !== w || this.canvas.height !== h) {
-        this.canvas.width = w;
-        this.canvas.height = h;
+      // Batch DOM updates to prevent flickering
+      try {
+        this.context.putImageData(new ImageData(data, w, h), 0, 0);
+        const dataURL = this.canvas.toDataURL('image/png');
+        this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataURL);
+        this.feDisplacementMap.setAttribute('scale', Math.min(maxScale * 1.5, 12).toString());
+      } catch (e) {
+        // Graceful fallback if canvas operations fail
+        console.warn('Shader update failed, skipping frame');
       }
-
-      this.context.putImageData(new ImageData(data, w, h), 0, 0);
-      this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
-      this.feDisplacementMap.setAttribute('scale', (maxScale / this.canvasDPI * 1.2).toString());
     }
   }
   
