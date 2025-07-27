@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       this.mouse = { x: 0.5, y: 0.5 };
       this.scrolled = false;
-      this.width = 400;
-      this.height = 100;
-      this.canvasDPI = 1;
+      this.width = Math.max(1280, window.innerWidth);
+      this.height = 80;
+      this.canvasDPI = 0.5; // Reduce for performance
       this.id = 'liquid-glass-header-' + Math.random().toString(36).substr(2, 9);
       
       this.init();
@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
       filter.setAttribute('colorInterpolationFilters', 'sRGB');
       filter.setAttribute('x', '0');
       filter.setAttribute('y', '0');
-      filter.setAttribute('width', '100%');
-      filter.setAttribute('height', '100%');
+      filter.setAttribute('width', this.width.toString());
+      filter.setAttribute('height', this.height.toString());
 
       this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
       this.feImage.setAttribute('id', `${this.id}_map`);
@@ -166,16 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateHeaderState() {
       if (this.scrolled) {
-        this.header.style.filter = `url(#${this.id}_filter) blur(0.5px) brightness(1.15) saturate(1.2)`;
-        this.header.style.background = 'rgba(255, 255, 255, 0.2)';
-        this.header.style.backdropFilter = 'blur(12px)';
+        // Apply liquid glass filter while preserving CSS styles
+        this.header.style.filter = `url(#${this.id}_filter)`;
         this.header.classList.add('scrolled');
         this.updateShader();
         console.log('🌊 Liquid glass effect activated');
       } else {
+        // Remove liquid glass filter, let CSS handle normal state
         this.header.style.filter = 'none';
-        this.header.style.background = 'rgba(255, 255, 255, 0.95)';
-        this.header.style.backdropFilter = 'none';
         this.header.classList.remove('scrolled');
         console.log('❄️ Liquid glass effect deactivated');
       }
