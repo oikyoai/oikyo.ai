@@ -24,12 +24,36 @@
   }
 }
 
-// Glass card component
+// Glass card component with liquid glass enhancement
 .glass-card {
   @include glass-base;
   background: $glass-bg;
   padding: $space-8;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Subtle border animation for liquid glass interaction
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(45deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.2) 25%, 
+      rgba(255, 255, 255, 0.4) 50%, 
+      rgba(255, 255, 255, 0.2) 75%, 
+      transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -37,6 +61,10 @@
     
     &::before {
       opacity: 0.9;
+    }
+    
+    &::after {
+      opacity: 1;
     }
   }
 }
@@ -134,11 +162,14 @@
   }
 }
 
-// Glass hero section
+// Glass hero section with liquid glass compatibility
 .glass-hero {
   background: $gradient-hero;
   position: relative;
   overflow: hidden;
+  
+  // Ensure liquid glass doesn't interfere with hero content
+  isolation: isolate;
   
   &::before {
     content: '';
@@ -149,6 +180,7 @@
     height: 200%;
     background: radial-gradient(circle, rgba(5, 112, 222, 0.1) 0%, rgba(157, 78, 221, 0.05) 50%, transparent 70%);
     animation: float 20s ease-in-out infinite;
+    will-change: transform;
   }
   
   &::after {
@@ -160,6 +192,7 @@
     height: 150%;
     background: radial-gradient(circle, rgba(0, 212, 170, 0.08) 0%, transparent 60%);
     animation: float 25s ease-in-out infinite reverse;
+    will-change: transform;
   }
 }
 
@@ -193,4 +226,46 @@
 .glass-blur { 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+// Accessibility and performance considerations
+@media (prefers-reduced-motion: reduce) {
+  .glass-card,
+  .glass-button,
+  .glass-hero::before,
+  .glass-hero::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+// Mobile optimizations - reduce effects for better performance
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    &::after {
+      display: none; // Remove complex gradients on mobile
+    }
+  }
+  
+  .glass-hero {
+    &::before,
+    &::after {
+      opacity: 0.5; // Reduce animation intensity
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .glass-card,
+  .glass-button,
+  .glass-container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid $gray-900;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
