@@ -7,16 +7,13 @@
   right: 0;
   z-index: $z-50;
   
-  // True liquid glass effect that works in Chrome
-  background: rgba(255, 255, 255, 0.1);
+  // Test basic backdrop-filter - simplified for Chrome
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   
-  // Use the correct backdrop-filter syntax that Chrome actually supports
-  -webkit-backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
-  backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
-  
-  // Force hardware acceleration for better Chrome performance
-  will-change: backdrop-filter;
-  transform: translate3d(0, 0, 0);
+  // Critical for Chrome backdrop-filter support
+  isolation: isolate;
   
   // Subtle borders and shadows for glass effect
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -28,9 +25,9 @@
   
   // Enhanced glass effect when scrolled
   &.scrolled {
-    background: rgba(255, 255, 255, 0.2);
-    -webkit-backdrop-filter: blur(15px) brightness(1.2) saturate(1.4);
-    backdrop-filter: blur(15px) brightness(1.2) saturate(1.4);
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
     box-shadow: 
       0 1px 0 rgba(255, 255, 255, 0.5) inset,
       0 8px 32px rgba(0, 0, 0, 0.12),
@@ -376,12 +373,19 @@ body {
   padding: 0;
 }
 
-// Apply negative margin to first section to allow content to flow under header
-.hero {
+// Apply negative margin to ALL main sections to allow content to flow under header
+.hero,
+.section {
   margin-top: -60px;
+  padding-top: calc($space-20 + 60px);
+  
+  &:first-of-type {
+    margin-top: -60px;
+  }
   
   @media (max-width: $breakpoint-md) {
     margin-top: -56px;
+    padding-top: calc($space-16 + 56px);
   }
 }
 
