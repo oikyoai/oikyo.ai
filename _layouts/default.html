@@ -125,7 +125,10 @@
   
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
-  <link rel="icon" type="image/png" href="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}">
+  <!-- Favicon - Monochrome for professional appearance -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
   
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
