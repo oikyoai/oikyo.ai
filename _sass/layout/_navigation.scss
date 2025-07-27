@@ -7,27 +7,16 @@
   right: 0;
   z-index: $z-50;
   
-  // True liquid glass effect - Chrome-optimized approach
-  background: rgba(255, 255, 255, 0.75);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  // True liquid glass effect that works in Chrome
+  background: rgba(255, 255, 255, 0.1);
   
-  // Chrome requires explicit isolation for backdrop-filter to work properly
-  isolation: isolate;
+  // Use the correct backdrop-filter syntax that Chrome actually supports
+  -webkit-backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
+  backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
   
-  // Ensure proper stacking context
-  transform: translateZ(0);
-  
-  // Enhanced for browsers with backdrop-filter support
-  @supports (backdrop-filter: blur(1px)) {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px) saturate(1.8);
-  }
-  
-  @supports (-webkit-backdrop-filter: blur(1px)) {
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  }
+  // Force hardware acceleration for better Chrome performance
+  will-change: backdrop-filter;
+  transform: translate3d(0, 0, 0);
   
   // Subtle borders and shadows for glass effect
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -39,19 +28,9 @@
   
   // Enhanced glass effect when scrolled
   &.scrolled {
-    background: rgba(255, 255, 255, 0.85);
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
-    
-    @supports (backdrop-filter: blur(1px)) {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(25px) saturate(2);
-    }
-    
-    @supports (-webkit-backdrop-filter: blur(1px)) {
-      background: rgba(255, 255, 255, 0.25);
-      -webkit-backdrop-filter: blur(25px) saturate(2);
-    }
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(15px) brightness(1.2) saturate(1.4);
+    backdrop-filter: blur(15px) brightness(1.2) saturate(1.4);
     box-shadow: 
       0 1px 0 rgba(255, 255, 255, 0.5) inset,
       0 8px 32px rgba(0, 0, 0, 0.12),
@@ -59,7 +38,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
   
-  // Alternative backdrop-filter implementation for Chrome
+  // Glass morphism gradient overlay
   &::before {
     content: '';
     position: absolute;
@@ -73,11 +52,8 @@
       rgba(255, 255, 255, 0.05) 50%,
       rgba(255, 255, 255, 0) 100%
     );
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    backdrop-filter: blur(20px) saturate(1.8);
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: -1;
   }
   
   &.scrolled::before {
@@ -297,19 +273,9 @@
   top: 60px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.75);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  
-  @supports (backdrop-filter: blur(1px)) {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px) saturate(1.8);
-  }
-  
-  @supports (-webkit-backdrop-filter: blur(1px)) {
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  }
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
+  backdrop-filter: blur(10px) brightness(1.1) saturate(1.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 
     0 1px 0 rgba(255, 255, 255, 0.4) inset,
