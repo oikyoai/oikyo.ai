@@ -3,7 +3,10 @@
     <div class="footer-content">
       <div class="footer-brand">
         <a href="{{ "/" | relative_url }}" class="footer-logo">
-          <img src="{{ "/assets/images/logo_bw_transparent.png" | relative_url }}" alt="Oikyo.ai Logo" style="height: 32px; filter: brightness(0) invert(1);">
+          <picture style="height: 32px; filter: brightness(0) invert(1);">
+            <source srcset="{{ "/assets/images/logo_bw_optimized.webp" | relative_url }}" type="image/webp">
+            <img src="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}" alt="Oikyo.ai Logo" width="32" height="32" loading="lazy">
+          </picture>
           <span style="color: white; font-weight: 600; margin-left: 12px;">{{ site.company.name }}</span>
         </a>
         <p style="color: #94a3b8; margin-top: 16px; max-width: 300px;">

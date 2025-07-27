@@ -1,7 +1,10 @@
 <header class="site-header" id="site-header">
   <nav class="navbar">
     <a class="navbar-brand" href="{{ "/" | relative_url }}">
-      <img src="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}" alt="Oikyo.ai Logo" class="logo logo--large">
+      <picture class="logo logo--large">
+        <source srcset="{{ "/assets/images/logo_rgb_optimized.webp" | relative_url }}" type="image/webp">
+        <img src="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}" alt="Oikyo.ai Logo" width="44" height="44" loading="eager">
+      </picture>
     </a>
     
     <ul class="navbar-nav">

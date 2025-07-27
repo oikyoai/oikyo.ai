@@ -49,6 +49,11 @@
     width: auto;
     transition: all 0.2s ease;
     
+    img {
+      height: inherit;
+      width: auto;
+    }
+    
     @media (max-width: $breakpoint-md) {
       height: 28px;
     }
