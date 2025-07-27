@@ -275,3 +275,31 @@
     transform: translateX(-50%) translateY(-4px) rotate(-45deg);
   }
 }
+
+// Page hero variant (smaller, no features)
+.hero--page {
+  min-height: 60vh;
+  padding: calc($space-16 + 60px) 0 $space-16;
+  
+  @media (max-width: $breakpoint-md) {
+    min-height: 50vh;
+    padding: calc($space-12 + 56px) 0 $space-12;
+  }
+  
+  .hero-title {
+    font-size: $text-5xl;
+    margin-bottom: $space-4;
+    
+    @media (max-width: $breakpoint-lg) {
+      font-size: $text-4xl;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-3xl;
+    }
+  }
+  
+  .hero-subtitle {
+    margin-bottom: 0;
+  }
+}

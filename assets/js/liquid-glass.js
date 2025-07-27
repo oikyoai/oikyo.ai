@@ -201,33 +201,9 @@ if (typeof window !== 'undefined') {
   // Export for potential external control
   window.LiquidGlass = OptimizedLiquidGlass;
   
-  // Auto-initialize with performance checks
+  // Disable auto-initialization of draggable element
+  // The liquid glass effect is now integrated into the header design
   let liquidGlassInstance = null;
-  
-  function initLiquidGlass() {
-    if (!liquidGlassInstance) {
-      liquidGlassInstance = new OptimizedLiquidGlass();
-    }
-  }
-  
-  // Initialize after other critical resources
-  function initWithPreferences() {
-    // Check user preference (localStorage)
-    const userPreference = localStorage.getItem('liquid-glass-enabled');
-    if (userPreference === 'false') {
-      return; // User has disabled the effect
-    }
-    
-    initLiquidGlass();
-  }
-  
-  if (document.readyState === 'complete') {
-    setTimeout(initWithPreferences, 1000);
-  } else {
-    window.addEventListener('load', () => {
-      setTimeout(initWithPreferences, 1000);
-    });
-  }
   
   // Expose control functions
   window.LiquidGlassControls = {

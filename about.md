@@ -1,16 +1,21 @@
 ---
 layout: page
-title: About
+title: About Oikyo.ai
+subtitle: We believe that artificial intelligence should be accessible, trustworthy, and transformative for every organization
 permalink: /about/
 ---
 
-# About Oikyo.ai
-
-At Oikyo.ai, we believe that artificial intelligence should be accessible, trustworthy, and transformative for every organization. We specialize in helping businesses navigate the complex landscape of AI adoption with confidence and strategic clarity.
+<div class="service-section">
 
 ## Our Mission
 
 To accelerate AI adoption through trusted practices and platforms, enabling organizations to harness the power of artificial intelligence while maintaining ethical standards and regulatory compliance.
+
+We specialize in helping businesses navigate the complex landscape of AI adoption with confidence and strategic clarity, ensuring sustainable success in their AI transformation journey.
+
+</div>
+
+<div class="service-section">
 
 ## What We Do
 
@@ -22,12 +27,20 @@ We provide comprehensive AI adoption consulting that covers every aspect of your
 - **Training & Change Management:** Empower your team with the skills and knowledge needed for success
 - **Governance & Compliance:** Establish frameworks for responsible AI use
 
+</div>
+
+<div class="service-section">
+
 ## Why Choose Oikyo.ai
 
-**Trusted Expertise:** Our team combines deep technical knowledge with real-world implementation experience.
+**Trusted Expertise:** Our team combines deep technical knowledge with real-world implementation experience across diverse industries and organizational contexts.
 
-**Holistic Approach:** We address not just the technology, but the people, processes, and governance needed for sustainable AI adoption.
+**Holistic Approach:** We address not just the technology, but the people, processes, and governance frameworks needed for sustainable AI adoption.
 
-**Proven Methodology:** Our structured approach has helped organizations across industries successfully implement AI initiatives.
+**Proven Methodology:** Our structured approach has helped organizations across industries successfully implement AI initiatives that deliver measurable business value.
 
-**Ongoing Partnership:** We're with you throughout your AI journey, providing continued support and guidance as your needs evolve.
+**Ongoing Partnership:** We're with you throughout your AI journey, providing continued support and guidance as your needs evolve and mature.
+
+> **Ready to get started?** [Contact us](/contact/) to discuss how we can help accelerate your AI adoption journey.
+
+</div>
