@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       this.mouse = { x: 0.5, y: 0.5 };
       this.scrolled = false;
+      this.lastScrollY = 0;
+      this.scrollThreshold = 50;
+      this.scrollHysteresis = 10; // Prevent rapid toggling
       this.width = Math.max(1280, window.innerWidth);
       this.height = 80;
       this.canvasDPI = 0.5; // Reduce for performance
@@ -144,16 +147,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      // Scroll tracking
+      // Scroll tracking with hysteresis to prevent rapid toggling
       let ticking = false;
       window.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame(() => {
-            const currentScrolled = window.scrollY > 50;
-            if (currentScrolled !== this.scrolled) {
-              this.scrolled = currentScrolled;
+            const currentScrollY = window.scrollY;
+            let shouldBeScrolled = this.scrolled;
+            
+            // Use hysteresis to prevent rapid toggling
+            if (!this.scrolled && currentScrollY > this.scrollThreshold + this.scrollHysteresis) {
+              shouldBeScrolled = true;
+            } else if (this.scrolled && currentScrollY < this.scrollThreshold - this.scrollHysteresis) {
+              shouldBeScrolled = false;
+            }
+            
+            if (shouldBeScrolled !== this.scrolled) {
+              this.scrolled = shouldBeScrolled;
               this.updateHeaderState();
             }
+            
+            this.lastScrollY = currentScrollY;
             ticking = false;
           });
           ticking = true;
@@ -170,12 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
         this.header.style.setProperty('--liquid-glass-filter', `url(#${this.id}_filter)`);
         this.header.classList.add('scrolled', 'liquid-glass-active');
         this.updateShader();
-        console.log('🌊 Liquid glass effect activated');
+        console.log('🌊 Header scrolled - liquid glass activated');
       } else {
         // Remove liquid glass filter
         this.header.style.removeProperty('--liquid-glass-filter');
         this.header.classList.remove('scrolled', 'liquid-glass-active');
-        console.log('❄️ Liquid glass effect deactivated');
+        console.log('⬆️ Header at top - translucent mode');
       }
     }
     
