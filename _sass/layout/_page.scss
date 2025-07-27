@@ -1,8 +1,8 @@
 // Page Layout Styles
 
 .page-content {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   
   h1, h2, h3, h4, h5, h6 {
     color: $gray-900;
@@ -123,8 +123,10 @@
   // Glass cards for service sections
   .service-section {
     @extend .glass-card;
-    margin-bottom: $space-8;
+    margin: 0 0 $space-8 0;
     padding: $space-8;
+    width: 100%;
+    box-sizing: border-box;
     
     @media (max-width: $breakpoint-md) {
       padding: $space-6;
@@ -173,6 +175,7 @@
 // Enhanced container for page sections
 .section {
   padding: $space-16 0;
+  width: 100%;
   
   &:first-of-type {
     padding-top: $space-12;
@@ -184,15 +187,5 @@
     &:first-of-type {
       padding-top: $space-8;
     }
-  }
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 $space-2;
-  
-  @media (max-width: $breakpoint-md) {
-    padding: 0 $space-2;
   }
 }
