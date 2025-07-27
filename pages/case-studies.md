@@ -5,7 +5,7 @@ subtitle: See how Oikyo.ai has helped organizations successfully adopt AI techno
 permalink: /case-studies/
 ---
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Real-World AI Transformations
 
@@ -15,7 +15,7 @@ Our case studies showcase the measurable impact of strategic AI adoption across 
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## What You'll Find
 
@@ -29,7 +29,7 @@ When our case studies are published, they will include:
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Industry Focus Areas
 

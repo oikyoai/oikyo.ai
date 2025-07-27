@@ -5,7 +5,7 @@ subtitle: Comprehensive AI adoption consulting to help organizations successfull
 permalink: /services/
 ---
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## AI Strategy Consulting
 
@@ -19,7 +19,7 @@ We help you develop a comprehensive AI strategy that aligns with your business o
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Platform Implementation
 
@@ -33,7 +33,7 @@ From vendor selection to deployment, we guide you through the technical aspects 
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Training & Change Management
 
@@ -47,7 +47,7 @@ Successful AI adoption requires organizational change. We help your team embrace
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Compliance & Ethics
 

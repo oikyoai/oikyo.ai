@@ -5,7 +5,7 @@ subtitle: Ready to accelerate your AI adoption? Get in touch with our team of ex
 permalink: /contact/
 ---
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Get Started Today
 
@@ -16,7 +16,7 @@ We're here to help you navigate your AI transformation journey. Reach out to dis
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Connect With Us
 
@@ -27,7 +27,7 @@ Stay updated with the latest insights and developments in AI adoption and best p
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Office Hours
 

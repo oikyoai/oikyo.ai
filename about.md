@@ -5,7 +5,7 @@ subtitle: We believe that artificial intelligence should be accessible, trustwor
 permalink: /about/
 ---
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Our Mission
 
@@ -15,7 +15,7 @@ We specialize in helping businesses navigate the complex landscape of AI adoptio
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## What We Do
 
@@ -29,7 +29,7 @@ We provide comprehensive AI adoption consulting that covers every aspect of your
 
 </div>
 
-<div class="service-section">
+<div class="service-section" markdown="1">
 
 ## Why Choose Oikyo.ai
 
