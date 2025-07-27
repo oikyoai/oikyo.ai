@@ -1,7 +1,4 @@
-// Typography System - Inter Font Family
-
-// Google Fonts Import
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional');
+// Typography System - San Francisco & Modern System Fonts
 
 // Base typography
 * {
@@ -130,3 +127,9 @@ ul, ol {
 .text-gray-800 { color: $gray-800; }
 .text-gray-900 { color: $gray-900; }
 .text-white { color: $white; }
+
+// Company name styling
+.company-name {
+  font-weight: $font-semibold;
+  letter-spacing: -0.02em; // Slightly tighter letter spacing for modern look
+}

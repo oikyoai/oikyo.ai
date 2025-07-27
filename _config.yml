@@ -1,4 +1,4 @@
-title: "Oikyo.ai"
+title: "oikyo"
 description: "Accelerating AI adoption through trusted practices and platforms"
 url: "https://oikyo.ai"
 baseurl: ""
@@ -14,7 +14,7 @@ plugins:
 
 # Custom settings
 company:
-  name: "Oikyo.ai"
+  name: "oikyo"
   tagline: "Trusted AI Adoption"
   email: "hello@oikyo.ai"
   phone: "+1 (555) 123-4567"

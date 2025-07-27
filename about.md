@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Oikyo.ai
+title: About oikyo
 subtitle: We believe that artificial intelligence should be accessible, trustworthy, and transformative for every organization
 permalink: /about/
 ---
@@ -31,7 +31,7 @@ We provide comprehensive AI adoption consulting that covers every aspect of your
 
 <div class="service-section" markdown="1">
 
-## Why Choose Oikyo.ai
+## Why Choose **oikyo**
 
 **Trusted Expertise:** Our team combines deep technical knowledge with real-world implementation experience across diverse industries and organizational contexts.
 
