@@ -424,7 +424,21 @@ body {
 }
 
 // Enhanced fallback for browsers that don't support backdrop-filter
-@supports not (backdrop-filter: blur(1px)) and not (-webkit-backdrop-filter: blur(1px)) {
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    
+    &.scrolled {
+      background: rgba(255, 255, 255, 0.98) !important;
+    }
+  }
+  
+  .mobile-menu {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+@supports not (-webkit-backdrop-filter: blur(1px)) {
   .site-header {
     background: rgba(255, 255, 255, 0.95) !important;
     
