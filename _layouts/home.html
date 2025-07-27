@@ -5,10 +5,10 @@ layout: default
 <section class="hero">
   <div class="hero-container">
     <div class="hero-content">
-      <h1 class="hero-title">
+      <h2 class="hero-title">
         {{ page.title | default: "Accelerating AI Adoption Through" }}
         <span class="highlight">Trusted Practices</span>
-      </h1>
+      </h2>
       
       <p class="hero-subtitle">
         {{ content | strip_html | truncatewords: 30 | default: "At Oikyo.ai, we help organizations navigate the complex landscape of artificial intelligence adoption with confidence and strategic clarity. From strategy development to implementation and governance, we're your trusted partner in AI transformation." }}
@@ -25,7 +25,7 @@ layout: default
           <div class="feature-icon">
             <span>🚀</span>
           </div>
-          <h2 class="feature-title">{{ service.title }}</h2>
+          <h3 class="feature-title">{{ service.title }}</h3>
           <p class="feature-description">{{ service.description }}</p>
         </div>
         {% endfor %}
