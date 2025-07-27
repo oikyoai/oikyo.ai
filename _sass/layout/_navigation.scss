@@ -59,10 +59,10 @@
     }
     
     &.logo--large {
-      height: 44px;
+      height: 52px;
       
       @media (max-width: $breakpoint-md) {
-        height: 36px;
+        height: 48px;
       }
     }
   }
