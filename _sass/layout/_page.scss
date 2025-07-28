@@ -151,7 +151,7 @@
     position: relative;
     
     &:hover {
-      color: darken($primary-blue, 10%);
+      color: #1e40af;
       
       &::after {
         transform: scaleX(1);
