@@ -1,69 +1,57 @@
-// Hero Section with Glass Effects and Animations
+// Hero Section - Clean, Minimalist Design
 
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: $gradient-hero;
+  background: $white;
   overflow: hidden;
-  padding: calc($space-20 + 60px) 0 $space-20;
+  padding: calc($space-24 + 60px) 0 $space-24;
   
   @media (max-width: $breakpoint-md) {
     min-height: 80vh;
     padding: calc($space-16 + 56px) 0 $space-16;
   }
   
-  // Animated background elements
+  // Subtle background accent
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(5, 112, 222, 0.08) 0%, rgba(157, 78, 221, 0.04) 50%, transparent 70%);
-    animation: float 20s ease-in-out infinite;
-    z-index: 1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -30%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(0, 212, 170, 0.06) 0%, transparent 60%);
-    animation: float 25s ease-in-out infinite reverse;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(249, 250, 251, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
     z-index: 1;
   }
 }
 
 .hero-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $space-2;
+  padding: 0 $space-6;
   position: relative;
   z-index: 2;
   
   @media (max-width: $breakpoint-md) {
-    padding: 0 $space-2;
+    padding: 0 $space-4;
   }
 }
 
 .hero-content {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .hero-title {
   font-size: $text-6xl;
   font-weight: $font-bold;
-  line-height: 1.1;
-  margin-bottom: $space-6;
+  line-height: 1.05;
+  margin-bottom: $space-8;
   color: $gray-900;
+  letter-spacing: -0.03em;
   
   @media (max-width: $breakpoint-lg) {
     font-size: $text-5xl;
@@ -97,10 +85,13 @@
 
 .hero-subtitle {
   font-size: $text-xl;
-  color: $gray-700;
-  margin-bottom: $space-8;
-  line-height: 1.6;
+  color: $gray-600;
+  margin-bottom: $space-12;
+  line-height: 1.65;
   font-weight: $font-normal;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $breakpoint-md) {
     font-size: $text-lg;
@@ -110,11 +101,11 @@
 
 .hero-actions {
   display: flex;
-  gap: $space-4;
+  gap: $space-6;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: $space-12;
+  margin-bottom: $space-20;
   
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;

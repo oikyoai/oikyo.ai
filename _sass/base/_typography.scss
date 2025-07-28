@@ -1,4 +1,4 @@
-// Typography System - San Francisco & Modern System Fonts
+// Typography System - Clean, Minimalist Design
 
 // Base typography
 * {
@@ -15,23 +15,26 @@ html {
 body {
   font-family: $font-primary;
   font-weight: $font-normal;
-  color: $gray-900;
+  color: $gray-800;
   background-color: $white;
   line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
-// Heading styles
+// Heading styles - Clean and minimal
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-primary;
   font-weight: $font-semibold;
-  line-height: 1.2;
-  margin-bottom: $space-4;
+  line-height: 1.1;
+  margin-bottom: $space-6;
   color: $gray-900;
+  letter-spacing: -0.02em;
 }
 
 h1 {
   font-size: $text-5xl;
   font-weight: $font-bold;
+  line-height: 1.05;
   
   @media (max-width: $breakpoint-md) {
     font-size: $text-4xl;
@@ -66,22 +69,27 @@ h6 {
   font-size: $text-lg;
 }
 
-// Body text
+// Body text - Improved readability
 p {
-  margin-bottom: $space-4;
-  color: $gray-800;
-  line-height: 1.7;
+  margin-bottom: $space-6;
+  color: $gray-600;
+  line-height: 1.65;
+  font-weight: $font-normal;
 }
 
-// Links
+// Links - Clean styling
 a {
   color: $primary-blue;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease;
   
   &:hover {
-    color: $primary-purple;
-    text-decoration: underline;
+    color: $primary-green;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-blue;
+    outline-offset: 2px;
   }
 }
 

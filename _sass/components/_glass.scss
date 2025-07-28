@@ -1,137 +1,89 @@
-// Glassmorphism Components
-// Apple Liquid Glass Design Language
+// Clean Card Components
+// Minimalist Design System
 
-// Base glass effect
-@mixin glass-base {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid $glass-border;
-  border-radius: $radius-xl;
-  box-shadow: $shadow-glass;
+// Base card effect
+@mixin card-base {
+  border: 1px solid $card-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
   position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $gradient-glass;
-    opacity: 0.8;
-    z-index: -1;
-  }
+  background: $card-bg;
+  transition: all 0.2s ease;
 }
 
-// Glass card component with liquid glass enhancement
+// Clean card component
 .glass-card {
-  @include glass-base;
-  background: $glass-bg;
+  @include card-base;
   padding: $space-8;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  // Subtle border animation for liquid glass interaction
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(45deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.2) 25%, 
-      rgba(255, 255, 255, 0.4) 50%, 
-      rgba(255, 255, 255, 0.2) 75%, 
-      transparent 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: exclude;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    
-    &::before {
-      opacity: 0.9;
-    }
-    
-    &::after {
-      opacity: 1;
-    }
+    transform: translateY(-1px);
+    box-shadow: $card-shadow-hover;
+    border-color: $gray-300;
   }
 }
 
-// Glass navigation
+// Clean navigation
 .glass-nav {
-  @include glass-base;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid $glass-border;
-  border-radius: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid $card-border;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: $z-50;
   padding: $space-4 0;
-  
-  &::before {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
-  }
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-// Glass button
+// Clean button
 .glass-button {
-  @include glass-base;
-  background: $glass-bg;
+  border: 1px solid $card-border;
+  border-radius: $radius-md;
   padding: $space-3 $space-6;
-  border: none;
   cursor: pointer;
   font-family: $font-primary;
   font-weight: $font-medium;
   font-size: $text-base;
   color: $gray-900;
-  transition: all 0.2s ease;
+  background: $white;
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: $space-2;
   
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    
-    &::before {
-      opacity: 1;
-    }
+    background: $gray-50;
+    border-color: $gray-300;
   }
   
   &:active {
-    transform: translateY(0);
+    transform: translateY(1px);
   }
   
   // Primary variant
   &--primary {
-    background: $gradient-primary;
+    background: $primary-blue;
     color: $white;
+    border-color: $primary-blue;
     
-    &::before {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    &:hover {
+      background: darken($primary-blue, 5%);
+      border-color: darken($primary-blue, 5%);
     }
   }
   
   // Secondary variant
   &--secondary {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: $white;
+    color: $gray-700;
+    border-color: $gray-300;
+    
+    &:hover {
+      background: $gray-50;
+      color: $gray-900;
+    }
   }
 }
 
