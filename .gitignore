@@ -7,3 +7,4 @@ vendor/
 *.gem
 Gemfile.lock
 CLAUDE.md
+.DS_Store
