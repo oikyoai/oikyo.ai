@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Our Services
+title: Our Solutions
 subtitle: Comprehensive AI adoption consulting to help organizations successfully implement and scale artificial intelligence initiatives
 permalink: /services/
 ---
