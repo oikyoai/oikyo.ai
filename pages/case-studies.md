@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Case Studies
-subtitle: See how Oikyo.ai has helped organizations successfully adopt AI technologies and transform their operations
+title: Use Cases
+subtitle: See how Oikyo.ai can help organizations in different verticals and industries successfully adopt AI technologies and transform their operations
 permalink: /case-studies/
 ---
 
@@ -9,7 +9,7 @@ permalink: /case-studies/
 
 ## Real-World AI Transformations
 
-Our case studies showcase the measurable impact of strategic AI adoption across various industries and organizational sizes.
+Our Use Cases showcase the measurable impact of strategic AI adoption across various industries and organizational sizes.
 
 > **Coming Soon:** Detailed case studies highlighting successful AI implementations, ROI achievements, and lessons learned from our client partnerships.
 
