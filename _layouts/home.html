@@ -7,18 +7,19 @@ layout: default
     <div class="hero-content">
       <h1 class="hero-title">
         {{ page.title | default: "Accelerating AI Adoption Through" }}
-        <span class="highlight">{{ page.highlight | default: "Trusted Practices" }}</span>
+        <span class="highlight">{{ page.highlight1 | default: "Trusted Practices" }}</span>
+        <span class="highlight highlight-small">{{ page.highlight2 }}</span>
       </h1>
-      
+
       <p class="hero-subtitle">
         {{ content | strip_html | truncatewords: 30 }}
       </p>
-      
+
       <div class="hero-actions">
         <a href="/contact/" class="btn-primary">Get Started</a>
         <a href="/services/" class="btn-secondary">Our Services</a>
       </div>
-      
+
       <div class="hero-features">
         <h2 class="visually-hidden">Featured Services</h2>
         {% for service in site.data.services.services limit:3 %}
@@ -33,7 +34,7 @@ layout: default
       </div>
     </div>
   </div>
-  
+
   <div class="scroll-indicator">
     <div class="scroll-arrow"></div>
     <div class="scroll-text">Scroll</div>
@@ -48,7 +49,7 @@ layout: default
         Comprehensive AI adoption consulting to help your organization successfully implement and scale artificial intelligence initiatives.
       </p>
     </div>
-    
+
     <div class="services-grid">
       {% for service in site.data.services.services %}
       <div class="service-card">
@@ -116,7 +117,7 @@ layout: default
           Contact us today to learn how we can help your organization harness the power of artificial intelligence.
         </p>
       </div>
-      
+
       <div class="hero-actions">
         <a href="/contact/" class="btn-primary">Contact Us</a>
         <a href="/contact/" class="btn-secondary">{{ site.company.email }}</a>
