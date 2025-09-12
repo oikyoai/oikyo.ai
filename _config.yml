@@ -1,5 +1,5 @@
 title: "oikyo"
-description: "Accelerating AI adoption through trusted practices and platforms"
+description: "At Oikyo, we help organizations navigate the complex landscape of AI adoption with confidence and strategic clarity."
 url: "https://oikyo.ai"
 baseurl: ""
 
@@ -15,13 +15,13 @@ plugins:
 # Custom settings
 company:
   name: "oikyo"
-  tagline: "Trusted AI Adoption"
+  tagline: "Simplifying ML Fine-Tuning Workflows: Desktop to Datacenter, One Platform, Zero Migrations"
   email: "hello@oikyo.ai"
   phone: "+1 (555) 123-4567"
 
 # Social links
 social:
-  linkedin: "company/oikyo-ai"
+  linkedin: "company/oikyo"
   twitter: "oikyoai"
 
 # SEO

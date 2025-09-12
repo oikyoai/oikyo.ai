@@ -1,49 +1,49 @@
 ---
 layout: page
 title: Our Solutions
-subtitle: Comprehensive AI adoption consulting to help organizations successfully implement and scale artificial intelligence initiatives
+subtitle: Comprehensive fine-tuning solutions to meet organizations where they are and scale to production-ready artificial intelligence initiatives
 permalink: /services/
 ---
 
 <div class="service-section" markdown="1">
 
-## AI Strategy Consulting
+## Oikyo Workbench
 
-We help you develop a comprehensive AI strategy that aligns with your business objectives and drives measurable results.
+A self-hosted, IDE-like application that unifies the fine-tuning workflow, providing maximum security and control for enterprises.
 
-- Current state assessment and capability analysis
-- ROI modeling and business case development  
-- Implementation roadmap creation
-- Risk assessment and mitigation strategies
-- Stakeholder alignment and communication planning
-
-</div>
-
-<div class="service-section" markdown="1">
-
-## Platform Implementation
-
-From vendor selection to deployment, we guide you through the technical aspects of AI implementation.
-
-- Vendor evaluation and selection
-- Technical assessment and integration planning
-- Custom solution development
-- Performance optimization and monitoring
-- Scalability planning and infrastructure design
+- Model Discovery and management across 200+ small and large models.
+- Train Models with your organization's data within your data boundary.   
+- Comprehensive, easy to use model fine-tuning features.
+- Single-click model export and hosting services. 
+- Evals, Inference, closing the loop from a unified IDE.
 
 </div>
 
 <div class="service-section" markdown="1">
 
-## Training & Change Management
+## Oikyo Cloud
 
-Successful AI adoption requires organizational change. We help your team embrace new technologies and processes.
+A fully managed SaaS platform providing the infrastructure for training, evaluation, and inference, eliminating operational overhead.
 
-- Comprehensive staff training programs
-- Change management strategies and execution
-- Best practices implementation
+- Cloud-based model fine-tuning and hosting services.
+- Performance optimization and online monitoring of training and eval jobs.
+- Ease of use and agility to move AI applications to production with confidence. 
+- Flexibility with Pay-as-you-go and Enterprise pricing.
+- Scalability planning and infrastructure support.
+
+</div>
+
+<div class="service-section" markdown="1">
+
+## Oikyo Foundry
+
+A strategic consulting arm that helps your team with end-to-end solutions for building better accuracy with your AI applications.
+
+- AI Strategy Assessment
+- Model Specialization Sprint
+- Enterprise Integration
 - Ongoing support and mentoring
-- Cultural transformation guidance
+- Best practices implementation
 
 </div>
 
