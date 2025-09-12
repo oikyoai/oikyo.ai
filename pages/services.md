@@ -47,16 +47,3 @@ A strategic consulting arm that helps your team with end-to-end solutions for bu
 
 </div>
 
-<div class="service-section" markdown="1">
-
-## Compliance & Ethics
-
-Navigate the complex landscape of AI governance with confidence and ensure responsible AI practices.
-
-- Regulatory compliance guidance
-- AI ethics framework development
-- Governance structure setup
-- Risk management protocols
-- Transparency and accountability measures
-
-</div>
