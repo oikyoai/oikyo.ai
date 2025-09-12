@@ -9,10 +9,7 @@ permalink: /waitlist/
 
 ## Get Started Today
 
-We're here to help you navigate your AI transformation journey. Reach out to discuss how we can support your organization's AI adoption goals.
-
-**Email:** [hello@oikyo.ai](mailto:hello@oikyo.ai)  
-**Phone:** [+1 (555) 123-4567](tel:+15551234567)
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfYHZ3xTVq3WjaEEYuGQgzbSUVHIPXbZtxVDfXR4gETDJdVQ/viewform?embedded=true" width="640" height="991" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 </div>
 
