@@ -1,27 +1,27 @@
 services:
-  - title: "AI Strategy & Roadmap"
-    description: "Develop comprehensive AI adoption strategies"
+  - title: "Oikyo Workbench"
+    description: "A self-hosted, IDE-like application that unifies the fine-tuning workflow, providing maximum security and control for enterprises."
     icon: "strategy-icon.svg"
     features:
-      - "Current state assessment"
-      - "ROI modeling"
-      - "Implementation roadmap"
+      - "Model Discovery and management across 200+ small and large models"
+      - "Train Models with your organization's data within your data boundary"
+      - "Evals, Inference, closing the loop from a unified IDE"
 
-  - title: "Platform Selection"
-    description: "Choose the right AI platforms for your needs"
+  - title: "Oikyo Cloud"
+    description: "A fully managed SaaS platform providing the infrastructure for training, evaluation, and inference, eliminating operational overhead."
     icon: "platform-icon.svg"
     features:
-      - "Vendor evaluation"
-      - "Technical assessment"
-      - "Integration planning"
+      - "Cloud-based model fine-tuning and hosting services"
+      - "Performance optimization and online monitoring of training and eval jobs"
+      - "Flexibility with Pay-as-you-go and Enterprise pricing"
 
-  - title: "Training & Change Management"
-    description: "Ensure successful AI adoption across your organization"
+  - title: "Oikyo Foundry"
+    description: "A strategic consulting arm that helps your team with end-to-end solutions for building better accuracy with your AI applications."
     icon: "training-icon.svg"
     features:
-      - "Staff training programs"
-      - "Change management"
-      - "Best practices implementation"
+      - "AI Strategy Assessment"
+      - "Model Specialization Sprint"
+      - "Enterprise Integration"
 
   - title: "Compliance & Ethics"
     description: "Navigate AI governance and regulatory requirements"
