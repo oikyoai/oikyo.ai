@@ -6,21 +6,21 @@ layout: default
   <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">
-        {{ page.title | default: "Accelerating AI Adoption Through" }}
-        <span class="highlight">{{ page.highlight | default: "Trusted Practices" }}</span>
+        {{ page.title | default: "Simplifying ML Fine-Tuning Workflows:" }}
+        <span class="highlight">{{ page.highlight | default: "Desktop to Data Center, One Platform, Zero Migrations" }}</span>
       </h1>
       
       <p class="hero-subtitle">
-        {{ content | strip_html | truncatewords: 30 }}
+        {{ content | strip_html | truncatewords: 50 }}
       </p>
       
       <div class="hero-actions">
         <a href="/contact/" class="btn-primary">Get Started</a>
-        <a href="/services/" class="btn-secondary">Our Services</a>
+        <a href="/services/" class="btn-secondary">Our Solutions</a>
       </div>
       
       <div class="hero-features">
-        <h2 class="visually-hidden">Featured Services</h2>
+        <h2 class="visually-hidden">Featured Solutions</h2>
         {% for service in site.data.services.services limit:3 %}
         <div class="hero-feature">
           <div class="feature-icon">
@@ -43,9 +43,9 @@ layout: default
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+      <h2 class="section-title">Our <span class="highlight">Solutions</span></h2>
       <p class="section-subtitle">
-        Comprehensive AI adoption consulting to help your organization successfully implement and scale artificial intelligence initiatives.
+        Comprehensive AI adoption solutions to help your organization successfully implement and scale artificial intelligence initiatives.
       </p>
     </div>
     
