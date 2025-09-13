@@ -22,7 +22,7 @@ We're here to help you navigate your AI transformation journey. Reach out to dis
 
 Stay updated with the latest insights and developments in AI adoption and best practices.
 
-- **LinkedIn:** [company/oikyo-ai](https://linkedin.com/company/oikyo-ai)
+- **LinkedIn:** [company/oikyo](https://linkedin.com/company/oikyo)
 - **Twitter:** [@oikyoai](https://twitter.com/oikyoai)
 
 </div>

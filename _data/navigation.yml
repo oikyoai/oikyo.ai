@@ -7,7 +7,5 @@ main:
     url: "/services/"
   - title: "Use Cases"
     url: "/case-studies/"
-  - title: "Resources"
-    url: "/resources/"
   - title: "Contact"
     url: "/contact/"
