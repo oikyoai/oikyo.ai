@@ -7,7 +7,7 @@
   align-items: center;
   background: $white;
   overflow: hidden;
-  padding: calc($space-12 + 60px) 0 $space-24;
+  padding: calc($space-12 + 60px) 0 $space-12;
 
   @media (max-width: $breakpoint-md) {
     min-height: 80vh;
