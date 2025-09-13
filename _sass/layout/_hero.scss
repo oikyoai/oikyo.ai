@@ -7,13 +7,13 @@
   align-items: center;
   background: $white;
   overflow: hidden;
-  padding: calc($space-24 + 60px) 0 $space-24;
-  
+  padding: calc($space-12 + 60px) 0 $space-24;
+
   @media (max-width: $breakpoint-md) {
     min-height: 80vh;
     padding: calc($space-16 + 56px) 0 $space-16;
   }
-  
+
   // Subtle background accent
   &::before {
     content: '';
@@ -33,7 +33,7 @@
   padding: 0 $space-6;
   position: relative;
   z-index: 2;
-  
+
   @media (max-width: $breakpoint-md) {
     padding: 0 $space-4;
   }
@@ -52,23 +52,23 @@
   margin-bottom: $space-8;
   color: $gray-900;
   letter-spacing: -0.03em;
-  
+
   @media (max-width: $breakpoint-lg) {
     font-size: $text-5xl;
   }
-  
+
   @media (max-width: $breakpoint-md) {
     font-size: $text-4xl;
     margin-bottom: $space-4;
   }
-  
+
   .highlight {
     background: $gradient-primary;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -92,7 +92,7 @@
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  
+
   @media (max-width: $breakpoint-md) {
     font-size: $text-lg;
     margin-bottom: $space-6;
@@ -106,42 +106,42 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: $space-20;
-  
+
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
     gap: $space-3;
   }
-  
+
   .btn-primary {
     @extend .glass-button;
     @extend .glass-button--primary;
     font-size: $text-lg;
     padding: $space-4 $space-8;
     font-weight: $font-semibold;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-base;
       padding: $space-3 $space-6;
     }
-    
+
     @media (max-width: $breakpoint-sm) {
       width: 100%;
       max-width: 280px;
     }
   }
-  
+
   .btn-secondary {
     @extend .glass-button;
     @extend .glass-button--secondary;
     font-size: $text-lg;
     padding: $space-4 $space-8;
     font-weight: $font-medium;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-base;
       padding: $space-3 $space-6;
     }
-    
+
     @media (max-width: $breakpoint-sm) {
       width: 100%;
       max-width: 280px;
@@ -155,7 +155,7 @@
   gap: $space-6;
   margin-top: $space-16;
   min-height: 200px;
-  
+
   @media (max-width: $breakpoint-md) {
     grid-template-columns: 1fr;
     gap: $space-4;
@@ -168,11 +168,11 @@
   @extend .glass-card;
   text-align: center;
   padding: $space-6;
-  
+
   @media (max-width: $breakpoint-md) {
     padding: $space-5;
   }
-  
+
   .feature-icon {
     width: 48px;
     height: 48px;
@@ -184,31 +184,31 @@
     justify-content: center;
     color: $white;
     font-size: $text-xl;
-    
+
     @media (max-width: $breakpoint-md) {
       width: 40px;
       height: 40px;
       font-size: $text-lg;
     }
   }
-  
+
   .feature-title {
     font-size: $text-lg;
     font-weight: $font-semibold;
     color: $gray-900;
     margin-bottom: $space-2;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-base;
     }
   }
-  
+
   .feature-description {
     font-size: $text-sm;
     color: $gray-600;
     line-height: 1.5;
     margin: 0;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-xs;
     }
@@ -235,7 +235,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  
+
   .scroll-arrow {
     width: 24px;
     height: 24px;
@@ -245,7 +245,7 @@
     transform: rotate(-45deg);
     animation: bounce 2s infinite;
   }
-  
+
   .scroll-text {
     font-size: $text-xs;
     color: $gray-500;
@@ -271,25 +271,25 @@
 .hero--page {
   min-height: 60vh;
   padding: calc($space-16 + 60px) 0 $space-16;
-  
+
   @media (max-width: $breakpoint-md) {
     min-height: 50vh;
     padding: calc($space-12 + 56px) 0 $space-12;
   }
-  
+
   .hero-title {
     font-size: $text-5xl;
     margin-bottom: $space-4;
-    
+
     @media (max-width: $breakpoint-lg) {
       font-size: $text-4xl;
     }
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-3xl;
     }
   }
-  
+
   .hero-subtitle {
     margin-bottom: 0;
   }
