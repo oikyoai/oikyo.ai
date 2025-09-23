@@ -17,6 +17,7 @@ A self-hosted, IDE-like application that unifies the fine-tuning workflow, provi
 - Single-click model export and hosting services. 
 - Evals, Inference, closing the loop from a unified IDE.
 
+
 </div>
 
 <div class="service-section" markdown="1">
@@ -35,15 +36,14 @@ A fully managed SaaS platform providing the infrastructure for training, evaluat
 
 <div class="service-section" markdown="1">
 
-## Oikyo Foundry
+## Oikyo Insights
 
-A strategic consulting arm that helps your team with end-to-end solutions for building better accuracy with your AI applications.
+Enables continuous evaluation of deployed models for better accuracy and domain relevance.
 
-- AI Strategy Assessment
-- Model Specialization Sprint
-- Enterprise Integration
-- Ongoing support and mentoring
-- Best practices implementation
+- Continuous Model Evaluation and Feedback loops
+- Model Governance and Tooling
+- Insights Dashboard and alerts for anomalies
+- Collaboration & Reporting
 
 </div>
 

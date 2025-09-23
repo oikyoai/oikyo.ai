@@ -15,10 +15,10 @@ services:
       - "Performance optimization and online monitoring of training and eval jobs"
       - "Flexibility with Pay-as-you-go and Enterprise pricing"
 
-  - title: "Oikyo Foundry"
-    description: "A strategic consulting arm that helps your team with end-to-end solutions for building better accuracy with your AI applications."
+  - title: "Oikyo Insights"
+    description: "Enables continuous evaluation of deployed models for better accuracy and domain relevance."
     icon: "training-icon.svg"
     features:
-      - "AI Strategy Assessment"
-      - "Model Specialization Sprint"
-      - "Enterprise Integration"
+      - "Continuous Model Evaluation and Feedback loops"
+      - "Model Governance"
+      - "Insights Dashboard"
