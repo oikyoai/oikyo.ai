@@ -38,9 +38,10 @@ A fully managed SaaS platform providing the infrastructure for training, evaluat
 
 ## Oikyo Insights
 
-Enables continuous evaluation of deployed models for better accuracy and domain relevance.
+Enabling continuous evaluation of deployed models for better accuracy and domain relevance.
 
-- Continuous Model Evaluation and Feedback loops
+- Continuous Model Evaluation
+- Feedback loops
 - Model Governance and Tooling
 - Insights Dashboard and alerts for anomalies
 - Collaboration & Reporting

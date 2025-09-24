@@ -11,14 +11,15 @@ services:
     description: "A fully managed SaaS platform providing the infrastructure for training, evaluation, and inference, eliminating operational overhead."
     icon: "platform-icon.svg"
     features:
-      - "Cloud-based model fine-tuning and hosting services"
+      - "Cloud-based model fine-tuning and hosting"
       - "Performance optimization and online monitoring of training and eval jobs"
       - "Flexibility with Pay-as-you-go and Enterprise pricing"
 
   - title: "Oikyo Insights"
-    description: "Enables continuous evaluation of deployed models for better accuracy and domain relevance."
+    description: "Enabling continuous evaluation of deployed models for better accuracy and domain relevance."
     icon: "training-icon.svg"
     features:
-      - "Continuous Model Evaluation and Feedback loops"
+      - "Continuous Model Evaluation"
+      - "Feedback loops"
       - "Model Governance"
       - "Insights Dashboard"
