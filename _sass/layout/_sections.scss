@@ -4,24 +4,24 @@
 .section {
   padding: $space-20 0;
   min-height: 400px;
-  
+
   @media (max-width: $breakpoint-md) {
     padding: $space-16 0;
     min-height: 300px;
   }
-  
+
   &--gray {
     background: $gray-50;
   }
-  
+
   &--dark {
     background: $gray-900;
     color: $white;
-    
+
     h1, h2, h3, h4, h5, h6 {
       color: $white;
     }
-    
+
     p {
       color: $gray-300;
     }
@@ -32,11 +32,11 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 $space-8; // Increase padding for better spacing
-  
+
   @media (max-width: $breakpoint-md) {
     padding: 0 $space-6; // Increase mobile padding too
   }
-  
+
   @media (max-width: $breakpoint-sm) {
     padding: 0 $space-4; // Smaller devices get minimal padding
   }
@@ -47,20 +47,20 @@
   text-align: center;
   max-width: 600px;
   margin: 0 auto $space-16;
-  
+
   @media (max-width: $breakpoint-md) {
     margin-bottom: $space-12;
   }
-  
+
   .section-title {
     font-size: $text-4xl;
     font-weight: $font-bold;
     margin-bottom: $space-4;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-3xl;
     }
-    
+
     .highlight {
       background: $gradient-primary;
       -webkit-background-clip: text;
@@ -68,12 +68,12 @@
       background-clip: text;
     }
   }
-  
+
   .section-subtitle {
     font-size: $text-xl;
     color: $gray-600;
     line-height: 1.6;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-lg;
     }
@@ -86,7 +86,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $space-8;
   min-height: 600px;
-  
+
   @media (max-width: $breakpoint-md) {
     grid-template-columns: 1fr;
     gap: $space-6;
@@ -98,14 +98,14 @@
   @extend .glass-card;
   text-align: center;
   padding: $space-8;
-  
+
   @media (max-width: $breakpoint-md) {
     padding: $space-6;
   }
-  
+
   .service-icon {
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     margin: 0 auto $space-6;
     background: $gradient-primary;
     border-radius: $radius-2xl;
@@ -113,37 +113,37 @@
     align-items: center;
     justify-content: center;
     color: $white;
-    font-size: $text-2xl;
-    
+    font-size: $text-4xl;
+
     @media (max-width: $breakpoint-md) {
       width: 56px;
       height: 56px;
       font-size: $text-xl;
     }
   }
-  
+
   .service-title {
     font-size: $text-xl;
     font-weight: $font-semibold;
     color: $gray-900;
     margin-bottom: $space-4;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-lg;
     }
   }
-  
+
   .service-description {
     color: $gray-600;
     line-height: 1.6;
     margin-bottom: $space-6;
   }
-  
+
   .service-features {
     list-style: none;
     padding: 0;
     margin: 0 0 $space-6;
-    
+
     li {
       display: flex;
       align-items: center;
@@ -151,7 +151,7 @@
       color: $gray-700;
       font-size: $text-sm;
       margin-bottom: $space-2;
-      
+
       &::before {
         content: '';
         width: 16px;
@@ -161,7 +161,7 @@
         flex-shrink: 0;
         position: relative;
       }
-      
+
       &::after {
         content: '';
         position: absolute;
@@ -175,7 +175,7 @@
       }
     }
   }
-  
+
   .service-link {
     @extend .glass-button;
     @extend .glass-button--secondary;
@@ -192,7 +192,7 @@
   align-items: center;
   max-width: 1200px; // Constrain max width
   margin: 0 auto; // Center the content
-  
+
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: 1fr;
     gap: $space-6;
@@ -204,34 +204,34 @@
     font-size: $text-3xl;
     font-weight: $font-bold;
     margin-bottom: $space-6;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-2xl;
     }
   }
-  
+
   .about-description {
     font-size: $text-lg;
     color: $gray-600;
     line-height: 1.7;
     margin-bottom: $space-6;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $text-base;
     }
   }
-  
+
   .about-features {
     list-style: none;
     padding: 0;
     margin: 0 0 $space-8;
-    
+
     li {
       display: flex;
       align-items: center;
       gap: $space-3;
       margin-bottom: $space-3;
-      
+
       .feature-icon {
         width: 20px;
         height: 20px;
@@ -242,7 +242,7 @@
         justify-content: center;
         flex-shrink: 0;
         position: relative;
-        
+
         // Professional checkmark using CSS
         &::after {
           content: '';
@@ -254,7 +254,7 @@
           margin-top: -2px;
         }
       }
-      
+
       .feature-text {
         color: $gray-700;
         font-weight: $font-medium;
@@ -269,7 +269,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   img, picture {
     display: block;
     width: 180px; // Slightly smaller for better balance
@@ -278,11 +278,11 @@
     border-radius: $radius-xl;
     object-fit: contain;
   }
-  
+
   img {
     aspect-ratio: 1 / 1;
   }
-  
+
   @media (max-width: $breakpoint-lg) {
     img, picture {
       width: 160px; // Smaller on mobile
@@ -302,32 +302,32 @@
   @extend .glass-card;
   padding: $space-8;
   text-align: left;
-  
+
   @media (max-width: $breakpoint-md) {
     padding: $space-6;
   }
-  
+
   .form-group {
     margin-bottom: $space-6;
-    
+
     label {
       display: block;
       font-weight: $font-medium;
       color: $gray-900;
       margin-bottom: $space-2;
     }
-    
+
     input,
     textarea {
       @extend .glass-input;
     }
-    
+
     textarea {
       min-height: 120px;
       resize: vertical;
     }
   }
-  
+
   .form-submit {
     @extend .glass-button;
     @extend .glass-button--primary;
@@ -344,10 +344,10 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: $space-6;
   margin-top: $space-12;
-  
+
   .contact-item {
     text-align: center;
-    
+
     .contact-icon {
       width: 48px;
       height: 48px;
@@ -360,19 +360,19 @@
       color: $white;
       font-size: $text-lg;
     }
-    
+
     .contact-label {
       font-weight: $font-semibold;
       color: $gray-900;
       margin-bottom: $space-1;
     }
-    
+
     .contact-value {
       color: $gray-600;
-      
+
       a {
         color: $gray-600;
-        
+
         &:hover {
           color: $primary-blue;
         }

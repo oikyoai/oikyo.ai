@@ -89,7 +89,16 @@ layout: default
       {% for service in site.data.services.services %}
       <div class="service-card">
         <div class="service-icon">
-          <span>{{ forloop.index }}</span>
+          <span>
+            {% case forloop.index %}
+              {% when 1 %}
+                &#9881;
+              {% when 2 %}
+                &#9925;
+              {% when 3 %}
+                &#128161;
+            {% endcase %}
+          </span>
         </div>
         <h3 class="service-title">{{ service.title }}</h3>
         <p class="service-description">{{ service.description }}</p>

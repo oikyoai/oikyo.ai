@@ -174,8 +174,8 @@
   }
 
   .feature-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin: 0 auto $space-4;
     background: $gradient-primary;
     border-radius: $radius-xl;
@@ -183,7 +183,7 @@
     align-items: center;
     justify-content: center;
     color: $white;
-    font-size: $text-2xl;
+    font-size: $text-3xl;
 
     @media (max-width: $breakpoint-md) {
       width: 40px;
