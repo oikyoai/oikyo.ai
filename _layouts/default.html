@@ -5,57 +5,56 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Security Headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | default: 'Oikyo.ai - Accelerating AI adoption through trusted practices and platforms. Expert AI strategy consulting, platform implementation, and governance solutions.' }}{% endif %}">
   <meta name="keywords" content="AI consulting, artificial intelligence, AI strategy, AI implementation, AI governance, machine learning, digital transformation">
   <meta name="author" content="{{ site.company.name }}">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{{ '/assets/images/logo_rgb_optimized.png' | absolute_url }}">
-  
+  <meta property="og:image" content="{{ '/assets/images/logo_square.png' | absolute_url }}">
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ page.url | absolute_url }}">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="twitter:image" content="{{ '/assets/images/logo_rgb_optimized.png' | absolute_url }}">
+  <meta property="twitter:image" content="{{ '/assets/images/logo_square.png' | absolute_url }}">
 
   {%- seo -%}
-  
+
   <!-- Performance optimizations - Using system fonts for faster loading -->
-  
+
   <!-- Preload critical assets -->
-  <link rel="preload" href="{{ "/assets/images/logo_rgb_optimized.webp" | relative_url }}" as="image" type="image/webp">
-  <link rel="preload" href="{{ "/assets/images/logo_rgb_optimized.png" | relative_url }}" as="image" type="image/png">
-  
+  <link rel="preload" href="{{ "/assets/images/logo_square.png" | relative_url }}" as="image" type="image/png">
+
   <!-- Preload liquid glass script for performance -->
   <link rel="preload" href="{{ "/assets/js/liquid-glass.js" | relative_url }}" as="script">
-  
+
   <!-- Critical CSS for immediate rendering -->
   <style>
-    body { 
-      margin: 0; 
-      padding: 0; 
+    body {
+      margin: 0;
+      padding: 0;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-display: swap;
     }
-    .site-header { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      z-index: 50; 
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
       height: 60px;
       background: rgba(255, 255, 255, 0.5);
       -webkit-backdrop-filter: blur(20px);
@@ -115,14 +114,14 @@
       .section { margin-top: -56px; padding-top: calc(4rem + 56px); }
     }
   </style>
-  
+
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
   <!-- Favicon - Monochrome for professional appearance -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}">
-  
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/logo_square.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/logo_square.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/logo_square.png" | relative_url }}">
+
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}

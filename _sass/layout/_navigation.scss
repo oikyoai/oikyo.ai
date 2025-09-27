@@ -126,6 +126,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    font-variant: small-caps;
+    margin-left: $space-3;
+    letter-spacing: 0.05em;
+    font-family: inherit;
   }
 }
 

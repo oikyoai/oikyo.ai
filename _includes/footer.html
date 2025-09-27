@@ -4,8 +4,7 @@
       <div class="footer-brand">
         <a href="{{ "/" | relative_url }}" class="footer-logo">
           <picture style="height: 32px; filter: brightness(0) invert(1);">
-            <source srcset="{{ "/assets/images/logo_bw_optimized.webp" | relative_url }}" type="image/webp">
-            <img src="{{ "/assets/images/logo_bw_optimized.png" | relative_url }}" alt="oikyo Logo" width="32" height="32" loading="lazy">
+            <img src="{{ "/assets/images/logo_square.png" | relative_url }}" alt="oikyo Logo" width="32" height="32" loading="lazy">
           </picture>
           <span style="color: white; font-weight: 600; margin-left: 12px;">{{ site.company.name }}</span>
         </a>
@@ -13,7 +12,7 @@
           {{ site.company.tagline }} - {{ site.description }}
         </p>
       </div>
-      
+
       <div class="footer-links">
         <div class="footer-section">
           <h4 style="color: white; margin-bottom: 16px;">Company</h4>
@@ -29,7 +28,7 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="footer-section">
           <h4 style="color: white; margin-bottom: 16px;">Contact</h4>
           <ul style="list-style: none; padding: 0; margin: 0;">
@@ -45,20 +44,20 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="footer-section">
           <h4 style="color: white; margin-bottom: 16px;">Follow Us</h4>
           <ul style="list-style: none; padding: 0; margin: 0;">
             <li style="margin-bottom: 8px;">
-              <a href="https://linkedin.com/{{ site.social.linkedin }}" 
-                 style="color: #94a3b8; text-decoration: none;" 
+              <a href="https://linkedin.com/{{ site.social.linkedin }}"
+                 style="color: #94a3b8; text-decoration: none;"
                  target="_blank" rel="noopener">
                 LinkedIn
               </a>
             </li>
             <li style="margin-bottom: 8px;">
-              <a href="https://twitter.com/{{ site.social.twitter }}" 
-                 style="color: #94a3b8; text-decoration: none;" 
+              <a href="https://twitter.com/{{ site.social.twitter }}"
+                 style="color: #94a3b8; text-decoration: none;"
                  target="_blank" rel="noopener">
                 Twitter
               </a>
@@ -67,7 +66,7 @@
         </div>
       </div>
     </div>
-    
+
     <div style="border-top: 1px solid #374151; margin-top: 48px; padding-top: 24px; text-align: center;">
       <p style="color: #6b7280; margin: 0; font-size: 14px;">
         &copy; {{ 'now' | date: "%Y" }} {{ site.company.name }}. All rights reserved.
@@ -95,7 +94,7 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  
+
   .footer-links {
     grid-template-columns: 1fr;
     gap: 24px;
