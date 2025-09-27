@@ -26,7 +26,7 @@ $card-shadow: rgba(0, 0, 0, 0.05);
 $card-shadow-hover: rgba(0, 0, 0, 0.1);
 
 // Gradients - Grey to dark grey
-$gradient-primary: linear-gradient(135deg, #{$gray-600} 0%, #{$gray-800} 100%);
+$gradient-primary: linear-gradient(135deg, #{$gray-800} 0%, #000000 100%);
 $gradient-hero: linear-gradient(135deg, #{$gray-50} 0%, #{$white} 100%);
 $gradient-subtle: linear-gradient(135deg, rgba(249, 250, 251, 1) 0%, rgba(255, 255, 255, 1) 100%);
 
