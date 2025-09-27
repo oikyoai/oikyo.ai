@@ -25,7 +25,16 @@ layout: default
         {% for service in site.data.services.services limit:3 %}
         <div class="hero-feature">
           <div class="feature-icon">
-            <span>{{ forloop.index }}</span>
+            <span>
+              {% case forloop.index %}
+                {% when 1 %}
+                  &#9881;
+                {% when 2 %}
+                  &#9925;
+                {% when 3 %}
+                  &#128161;
+              {% endcase %}
+            </span>
           </div>
           <h3 class="feature-title">{{ service.title }}</h3>
           <p class="feature-description">{{ service.description }}</p>
