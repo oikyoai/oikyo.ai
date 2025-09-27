@@ -22,21 +22,21 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{{ '/assets/images/logo_square.png' | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ page.url | absolute_url }}">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.company.tagline }}{% endif %}">
   <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="twitter:image" content="{{ '/assets/images/logo_square.png' | absolute_url }}">
+  <meta property="twitter:image" content="{{ '/assets/images/logo_rgb_transparent.png' | absolute_url }}">
 
   {%- seo -%}
 
   <!-- Performance optimizations - Using system fonts for faster loading -->
 
   <!-- Preload critical assets -->
-  <link rel="preload" href="{{ "/assets/images/logo_square.png" | relative_url }}" as="image" type="image/png">
+  <link rel="preload" href="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}" as="image" type="image/png">
 
   <!-- Preload liquid glass script for performance -->
   <link rel="preload" href="{{ "/assets/js/liquid-glass.js" | relative_url }}" as="script">
@@ -118,9 +118,9 @@
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
   <!-- Favicon - Monochrome for professional appearance -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/logo_square.png" | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/logo_square.png" | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/logo_square.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/logo_rgb_transparent.png" | relative_url }}">
 
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
